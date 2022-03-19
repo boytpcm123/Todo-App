@@ -1,5 +1,5 @@
 //
-//  CallListScreenController.swift
+//  BuyListScreenController.swift
 //  TodoApp
 //
 //  Created by hungdat1234 on 3/19/22.
@@ -9,12 +9,12 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class CallListScreenController: BaseViewController {
+class BuyListScreenController: BaseViewController {
     
     // MARK: - OUTLET
     @IBOutlet private weak var customNavigationBar: CustomNavigationBar! {
         didSet {
-            self.customNavigationBar.title = "Call List"
+            self.customNavigationBar.title = "Buy List"
             self.customNavigationBar.onLeftButtonAction = { [weak self] in
                 self?.navigationController?.popViewController(animated: true)
             }

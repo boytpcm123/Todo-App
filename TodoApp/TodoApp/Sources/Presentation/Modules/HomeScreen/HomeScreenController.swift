@@ -41,8 +41,8 @@ extension HomeScreenController {
         callListBtn.rx.tap
             .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext: { _ in
-                let callListVC = CallListScreenController()
-                self.navigationController?.pushViewController(callListVC, animated: true)
+                let controller = CallListScreenController()
+                self.navigationController?.pushViewController(controller, animated: true)
             })
             .disposed(by: disposeBag)
     }
@@ -51,7 +51,8 @@ extension HomeScreenController {
         buyListBtn.rx.tap
             .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext: { _ in
-                print("Buy call list button")
+                let controller = BuyListScreenController()
+                self.navigationController?.pushViewController(controller, animated: true)
             })
             .disposed(by: disposeBag)
     }
@@ -60,7 +61,8 @@ extension HomeScreenController {
         sellListBtn.rx.tap
             .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext: { _ in
-                print("Sell call list button")
+                let controller = SellListScreenController()
+                self.navigationController?.pushViewController(controller, animated: true)
             })
             .disposed(by: disposeBag)
     }

@@ -32,6 +32,12 @@
 		59A729FA27E5EDA5002CFE8B /* CustomNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59A729F927E5EDA5002CFE8B /* CustomNavigationBar.xib */; };
 		59A729FC27E5F12C002CFE8B /* BaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59A729FB27E5F12C002CFE8B /* BaseViewController.xib */; };
 		59A729FE27E61EA8002CFE8B /* CallListScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A729FD27E61EA8002CFE8B /* CallListScreenViewModel.swift */; };
+		59A72A0227E6228A002CFE8B /* BuyListScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A729FF27E6228A002CFE8B /* BuyListScreenViewModel.swift */; };
+		59A72A0327E6228A002CFE8B /* BuyListScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A72A0027E6228A002CFE8B /* BuyListScreenController.swift */; };
+		59A72A0427E6228A002CFE8B /* BuyListScreenController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59A72A0127E6228A002CFE8B /* BuyListScreenController.xib */; };
+		59A72A0827E62293002CFE8B /* SellListScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A72A0527E62293002CFE8B /* SellListScreenController.swift */; };
+		59A72A0927E62293002CFE8B /* SellListScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A72A0627E62293002CFE8B /* SellListScreenViewModel.swift */; };
+		59A72A0A27E62293002CFE8B /* SellListScreenController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59A72A0727E62293002CFE8B /* SellListScreenController.xib */; };
 		AE3E018D7C276CA1B743E907 /* Pods_TodoAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CD4E5044158F165569506A /* Pods_TodoAppTests.framework */; };
 		B3E75976EC4305EF4940C7C8 /* Pods_TodoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B0A86789D71DFD048DA278 /* Pods_TodoApp.framework */; };
 /* End PBXBuildFile section */
@@ -85,6 +91,12 @@
 		59A729F927E5EDA5002CFE8B /* CustomNavigationBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomNavigationBar.xib; sourceTree = "<group>"; };
 		59A729FB27E5F12C002CFE8B /* BaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseViewController.xib; sourceTree = "<group>"; };
 		59A729FD27E61EA8002CFE8B /* CallListScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallListScreenViewModel.swift; sourceTree = "<group>"; };
+		59A729FF27E6228A002CFE8B /* BuyListScreenViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyListScreenViewModel.swift; sourceTree = "<group>"; };
+		59A72A0027E6228A002CFE8B /* BuyListScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyListScreenController.swift; sourceTree = "<group>"; };
+		59A72A0127E6228A002CFE8B /* BuyListScreenController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuyListScreenController.xib; sourceTree = "<group>"; };
+		59A72A0527E62293002CFE8B /* SellListScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellListScreenController.swift; sourceTree = "<group>"; };
+		59A72A0627E62293002CFE8B /* SellListScreenViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellListScreenViewModel.swift; sourceTree = "<group>"; };
+		59A72A0727E62293002CFE8B /* SellListScreenController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SellListScreenController.xib; sourceTree = "<group>"; };
 		648F5A4592F94BDD09AF8F2D /* Pods_TodoApp_TodoAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoApp_TodoAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71CD4E5044158F165569506A /* Pods_TodoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F5A3F85575148D86D0BA23D /* Pods-TodoAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoAppTests.release.xcconfig"; path = "Target Support Files/Pods-TodoAppTests/Pods-TodoAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -264,6 +276,9 @@
 		59A729C327E5CE23002CFE8B /* BuyListScreen */ = {
 			isa = PBXGroup;
 			children = (
+				59A729FF27E6228A002CFE8B /* BuyListScreenViewModel.swift */,
+				59A72A0027E6228A002CFE8B /* BuyListScreenController.swift */,
+				59A72A0127E6228A002CFE8B /* BuyListScreenController.xib */,
 			);
 			path = BuyListScreen;
 			sourceTree = "<group>";
@@ -271,6 +286,9 @@
 		59A729C427E5CE38002CFE8B /* SellListScreen */ = {
 			isa = PBXGroup;
 			children = (
+				59A72A0627E62293002CFE8B /* SellListScreenViewModel.swift */,
+				59A72A0527E62293002CFE8B /* SellListScreenController.swift */,
+				59A72A0727E62293002CFE8B /* SellListScreenController.xib */,
 			);
 			path = SellListScreen;
 			sourceTree = "<group>";
@@ -543,7 +561,9 @@
 				59A729EC27E5E40B002CFE8B /* CallListScreenController.xib in Resources */,
 				59A7298A27E5BA9E002CFE8B /* Assets.xcassets in Resources */,
 				59A729FC27E5F12C002CFE8B /* BaseViewController.xib in Resources */,
+				59A72A0A27E62293002CFE8B /* SellListScreenController.xib in Resources */,
 				59A729E627E5D1BB002CFE8B /* HomeScreenController.xib in Resources */,
+				59A72A0427E6228A002CFE8B /* BuyListScreenController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -694,8 +714,10 @@
 				59A729E227E5D10E002CFE8B /* BaseViewModel.swift in Sources */,
 				59A729F827E5ED99002CFE8B /* CustomNavigationBar.swift in Sources */,
 				59A729E527E5D1BB002CFE8B /* HomeScreenController.swift in Sources */,
+				59A72A0827E62293002CFE8B /* SellListScreenController.swift in Sources */,
 				59A729C927E5CE86002CFE8B /* Constants.swift in Sources */,
 				59A729EB27E5E40B002CFE8B /* CallListScreenController.swift in Sources */,
+				59A72A0327E6228A002CFE8B /* BuyListScreenController.swift in Sources */,
 				59A729DC27E5CED3002CFE8B /* Typealiases.swift in Sources */,
 				59A729C827E5CE86002CFE8B /* Constants+API.swift in Sources */,
 				59A729D927E5CED3002CFE8B /* UIView+Subviews.swift in Sources */,
@@ -704,6 +726,8 @@
 				59A729DA27E5CED3002CFE8B /* Optional+Unwrap.swift in Sources */,
 				59A729FE27E61EA8002CFE8B /* CallListScreenViewModel.swift in Sources */,
 				59A7298827E5BA9D002CFE8B /* TodoApp.xcdatamodeld in Sources */,
+				59A72A0927E62293002CFE8B /* SellListScreenViewModel.swift in Sources */,
+				59A72A0227E6228A002CFE8B /* BuyListScreenViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
