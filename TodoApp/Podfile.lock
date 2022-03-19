@@ -1,3 +1,20 @@
-PODFILE CHECKSUM: afbbf81af39a94c9b288ce3ba8a2b5d43a712ced
+PODS:
+  - SwiftLint (0.46.5)
+  - Wormholy (1.6.5)
+
+DEPENDENCIES:
+  - SwiftLint (~> 0.46.5)
+  - Wormholy (~> 1.6.5)
+
+SPEC REPOS:
+  trunk:
+    - SwiftLint
+    - Wormholy
+
+SPEC CHECKSUMS:
+  SwiftLint: 2c16e8fa99dac2e440dc0c70ea74d2532048f6cf
+  Wormholy: 3252bc3e55a1847ef9a0976c1377bd77bf3635fa
+
+PODFILE CHECKSUM: 277f033d3582ab529c53e7cd6039d6316c988ee4
 
 COCOAPODS: 1.11.3
