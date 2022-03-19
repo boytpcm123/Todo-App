@@ -53,20 +53,12 @@ extension CallListScreenController {
                         }
                         .disposed(by: disposeBag)
         
-        callListTableView.rx.modelSelected(UserCall.self)
-            .bind { userCall in
+        Observable.zip(callListTableView.rx.modelSelected(UserCall.self),
+                       callListTableView.rx.itemSelected)
+            .bind { [weak self] userCall, indexPath in
+                self?.callListTableView.deselectRow(at: indexPath, animated: true)
                 print(userCall.name.string)
             }
             .disposed(by: disposeBag)
-        
-        callListTableView.rx.setDelegate(self).disposed(by: disposeBag)
-    }
-}
-
-// MARK: - SUPPORT FUCTIONS
-extension CallListScreenController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

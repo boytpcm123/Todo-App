@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1ADF85FAF2185080248FD8BC /* Pods_TodoApp_TodoAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 648F5A4592F94BDD09AF8F2D /* Pods_TodoApp_TodoAppUITests.framework */; };
+		5956655E27E65B9900129AD9 /* NoteListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5956655C27E65B9900129AD9 /* NoteListCell.xib */; };
+		5956655F27E65B9900129AD9 /* NoteListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5956655D27E65B9900129AD9 /* NoteListCell.swift */; };
 		59A7297E27E5BA9D002CFE8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A7297D27E5BA9D002CFE8B /* AppDelegate.swift */; };
 		59A7298827E5BA9D002CFE8B /* TodoApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 59A7298627E5BA9D002CFE8B /* TodoApp.xcdatamodeld */; };
 		59A7298A27E5BA9E002CFE8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59A7298927E5BA9E002CFE8B /* Assets.xcassets */; };
@@ -70,6 +72,8 @@
 		01B0A86789D71DFD048DA278 /* Pods_TodoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6EDA7BFBABEC24078107AF /* Pods-TodoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoApp.debug.xcconfig"; path = "Target Support Files/Pods-TodoApp/Pods-TodoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		53D8C4E405AB9F86B992F389 /* Pods-TodoApp-TodoAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoApp-TodoAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-TodoApp-TodoAppUITests/Pods-TodoApp-TodoAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5956655C27E65B9900129AD9 /* NoteListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteListCell.xib; sourceTree = "<group>"; };
+		5956655D27E65B9900129AD9 /* NoteListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteListCell.swift; sourceTree = "<group>"; };
 		59A7297A27E5BA9D002CFE8B /* TodoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59A7297D27E5BA9D002CFE8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59A7298727E5BA9D002CFE8B /* TodoApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TodoApp.xcdatamodel; sourceTree = "<group>"; };
@@ -455,6 +459,8 @@
 		59A72A0C27E6249E002CFE8B /* NoteListCell */ = {
 			isa = PBXGroup;
 			children = (
+				5956655D27E65B9900129AD9 /* NoteListCell.swift */,
+				5956655C27E65B9900129AD9 /* NoteListCell.xib */,
 			);
 			path = NoteListCell;
 			sourceTree = "<group>";
@@ -604,6 +610,7 @@
 				59A729FA27E5EDA5002CFE8B /* CustomNavigationBar.xib in Resources */,
 				59A7298D27E5BA9E002CFE8B /* LaunchScreen.storyboard in Resources */,
 				59A729EC27E5E40B002CFE8B /* CallListScreenController.xib in Resources */,
+				5956655E27E65B9900129AD9 /* NoteListCell.xib in Resources */,
 				59A7298A27E5BA9E002CFE8B /* Assets.xcassets in Resources */,
 				59A729FC27E5F12C002CFE8B /* BaseViewController.xib in Resources */,
 				59A72A0A27E62293002CFE8B /* SellListScreenController.xib in Resources */,
@@ -756,6 +763,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59A729D827E5CED3002CFE8B /* Color+Application.swift in Sources */,
+				5956655F27E65B9900129AD9 /* NoteListCell.swift in Sources */,
 				59A72A0F27E625DD002CFE8B /* CallListCell.swift in Sources */,
 				59A72A1227E62DFB002CFE8B /* UITableView+Extension.swift in Sources */,
 				59A729E827E5DB78002CFE8B /* HomeScreenViewModel.swift in Sources */,

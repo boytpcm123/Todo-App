@@ -28,7 +28,7 @@ struct TodoNetworkManager {
     
     func getBuyList() -> Single<[ItemNoted]> {
         return provider.rx
-            .request(.getCallList)
+            .request(.getBuyList)
             .filterSuccessfulStatusAndRedirectCodes() // filters status codes that are in the 200-300 range
             .map([ItemNoted].self)
     }
