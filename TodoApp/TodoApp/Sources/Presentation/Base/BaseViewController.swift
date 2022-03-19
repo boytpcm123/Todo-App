@@ -16,8 +16,6 @@ class BaseViewController: UIViewController {
     // MARK: - LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.configView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -25,24 +23,18 @@ class BaseViewController: UIViewController {
         
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+}
+
+// MARK: - UIGestureRecognizerDelegate
+extension BaseViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
+                           shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer)
+    -> Bool { true }
 }
 
 // MARK: - CONFIG
 extension BaseViewController {
-    
-    private func configView() {
-        
-        // Hide navigation bar
-        self.navigationController?.isNavigationBarHidden = true
-    }
+    override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
 }
 
 // MARK: - SUPPORT FUCTIONS
@@ -50,9 +42,4 @@ extension BaseViewController {
     
 }
 
-// MARK: - UIGestureRecognizerDelegate
-extension BaseViewController: UIGestureRecognizerDelegate {
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
-}
+

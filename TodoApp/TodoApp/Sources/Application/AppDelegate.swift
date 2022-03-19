@@ -17,17 +17,18 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        // Override point for customization after application launch.
         
-//        self.window = UIWindow(frame: UIScreen.main.bounds)
-//        let controller = ViewController()
-//        window?.rootViewController = controller
-//        window?.makeKeyAndVisible()
-        
-//        self.window = UIWindow(frame: UIScreen.main.bounds)
-//        window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
-//        window?.makeKeyAndVisible()
+        // Set root
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.setRootViewController(HomeScreenController())
         
         return true
+    }
+    
+    fileprivate func setRootViewController(_ viewController: UIViewController) {
+        let navVC: UINavigationController = UINavigationController(rootViewController: viewController)
+        navVC.setNavigationBarHidden(true, animated: true)
+        self.window?.rootViewController = navVC
+        self.window?.makeKeyAndVisible()
     }
 }
