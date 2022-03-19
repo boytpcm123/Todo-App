@@ -27,7 +27,7 @@ extension UITableView {
 extension UITableViewCell {
     
     static var dequeueIdentifier: String {
-        return String(describing: self)
+        String(describing: self)
     }
     
 }

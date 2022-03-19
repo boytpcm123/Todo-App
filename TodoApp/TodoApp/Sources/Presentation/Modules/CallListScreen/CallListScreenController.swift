@@ -24,37 +24,33 @@ class CallListScreenController: BaseViewController {
     @IBOutlet private weak var callListTableView: UITableView! {
         didSet {
             self.callListTableView.registerReusedCell(cellNib: CallListCell.self, bundle: nil)
-            self.callListTableView.delegate = self
-            self.callListTableView.dataSource = self
             self.callListTableView.tableFooterView = UIView()
         }
     }
     
     // MARK: - PROPERTIES
-    private var viewModel = HomeScreenViewModel()
+    private var viewModel = CallListScreenViewModel()
     private let disposeBag = DisposeBag()
-
+    private var userCalls: [UserCall] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        bindCallListData()
     }
 }
 
-extension CallListScreenController: UITableViewDataSource {
+// MARK: - SUPPORT FUCTIONS
+extension CallListScreenController {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusable(cellNib: CallListCell.self, indexPath: indexPath) else {
-            return UITableViewCell()
-        }
-        return cell
-    }
-}
-
-extension CallListScreenController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("did select cell")
+    private func bindCallListData() {
+        viewModel.fetchCallList()
+            .bind(to:
+                    callListTableView.rx.items(
+                        cellIdentifier: CallListCell.dequeueIdentifier,
+                        cellType: CallListCell.self)) { _, model, cell in
+                            cell.bindData(model)
+                        }
+                        .disposed(by: disposeBag)
     }
 }

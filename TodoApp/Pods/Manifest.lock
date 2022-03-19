@@ -1,4 +1,10 @@
 PODS:
+  - Alamofire (5.5.0)
+  - Moya/Core (15.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (15.0.0):
+    - Moya/Core
+    - RxSwift (~> 6.0)
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
@@ -9,13 +15,15 @@ PODS:
   - Wormholy (1.6.5)
 
 DEPENDENCIES:
+  - Moya/RxSwift (~> 15.0.0)
   - RxCocoa (~> 6.5.0)
-  - RxSwift (~> 6.5.0)
   - SwiftLint (~> 0.46.5)
   - Wormholy (~> 1.6.5)
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - Moya
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -23,12 +31,14 @@ SPEC REPOS:
     - Wormholy
 
 SPEC CHECKSUMS:
+  Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SwiftLint: 2c16e8fa99dac2e440dc0c70ea74d2532048f6cf
   Wormholy: 3252bc3e55a1847ef9a0976c1377bd77bf3635fa
 
-PODFILE CHECKSUM: 79a3eeb83c445374c382c490321430f01351f3fa
+PODFILE CHECKSUM: ef90d7e94d3a3f543604f1b090f74717ba972ed6
 
 COCOAPODS: 1.11.3

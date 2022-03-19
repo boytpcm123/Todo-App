@@ -41,6 +41,10 @@
 		59A72A0F27E625DD002CFE8B /* CallListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A72A0D27E625DD002CFE8B /* CallListCell.swift */; };
 		59A72A1027E625DD002CFE8B /* CallListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59A72A0E27E625DD002CFE8B /* CallListCell.xib */; };
 		59A72A1227E62DFB002CFE8B /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A72A1127E62DFB002CFE8B /* UITableView+Extension.swift */; };
+		59A72A1527E63B25002CFE8B /* TodoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A72A1427E63B25002CFE8B /* TodoService.swift */; };
+		59A72A1727E63DF7002CFE8B /* TodoNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A72A1627E63DF7002CFE8B /* TodoNetworkManager.swift */; };
+		59A72A1927E63F77002CFE8B /* UserCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A72A1827E63F77002CFE8B /* UserCall.swift */; };
+		59A72A1B27E64041002CFE8B /* ItemNoted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A72A1A27E64041002CFE8B /* ItemNoted.swift */; };
 		AE3E018D7C276CA1B743E907 /* Pods_TodoAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CD4E5044158F165569506A /* Pods_TodoAppTests.framework */; };
 		B3E75976EC4305EF4940C7C8 /* Pods_TodoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B0A86789D71DFD048DA278 /* Pods_TodoApp.framework */; };
 /* End PBXBuildFile section */
@@ -103,6 +107,10 @@
 		59A72A0D27E625DD002CFE8B /* CallListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallListCell.swift; sourceTree = "<group>"; };
 		59A72A0E27E625DD002CFE8B /* CallListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallListCell.xib; sourceTree = "<group>"; };
 		59A72A1127E62DFB002CFE8B /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		59A72A1427E63B25002CFE8B /* TodoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoService.swift; sourceTree = "<group>"; };
+		59A72A1627E63DF7002CFE8B /* TodoNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoNetworkManager.swift; sourceTree = "<group>"; };
+		59A72A1827E63F77002CFE8B /* UserCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCall.swift; sourceTree = "<group>"; };
+		59A72A1A27E64041002CFE8B /* ItemNoted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemNoted.swift; sourceTree = "<group>"; };
 		648F5A4592F94BDD09AF8F2D /* Pods_TodoApp_TodoAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoApp_TodoAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71CD4E5044158F165569506A /* Pods_TodoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F5A3F85575148D86D0BA23D /* Pods-TodoAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoAppTests.release.xcconfig"; path = "Target Support Files/Pods-TodoAppTests/Pods-TodoAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -313,6 +321,7 @@
 			children = (
 				59A729DD27E5CF36002CFE8B /* Repositories */,
 				59A729CB27E5CEAE002CFE8B /* Models */,
+				59A72A1327E63AE6002CFE8B /* NetworkAPI */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -320,6 +329,8 @@
 		59A729CB27E5CEAE002CFE8B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				59A72A1827E63F77002CFE8B /* UserCall.swift */,
+				59A72A1A27E64041002CFE8B /* ItemNoted.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -446,6 +457,15 @@
 			children = (
 			);
 			path = NoteListCell;
+			sourceTree = "<group>";
+		};
+		59A72A1327E63AE6002CFE8B /* NetworkAPI */ = {
+			isa = PBXGroup;
+			children = (
+				59A72A1427E63B25002CFE8B /* TodoService.swift */,
+				59A72A1627E63DF7002CFE8B /* TodoNetworkManager.swift */,
+			);
+			path = NetworkAPI;
 			sourceTree = "<group>";
 		};
 		AA6F564D6C220CDEF375DF77 /* Frameworks */ = {
@@ -739,12 +759,14 @@
 				59A72A0F27E625DD002CFE8B /* CallListCell.swift in Sources */,
 				59A72A1227E62DFB002CFE8B /* UITableView+Extension.swift in Sources */,
 				59A729E827E5DB78002CFE8B /* HomeScreenViewModel.swift in Sources */,
+				59A72A1927E63F77002CFE8B /* UserCall.swift in Sources */,
 				59A729E227E5D10E002CFE8B /* BaseViewModel.swift in Sources */,
 				59A729F827E5ED99002CFE8B /* CustomNavigationBar.swift in Sources */,
 				59A729E527E5D1BB002CFE8B /* HomeScreenController.swift in Sources */,
 				59A72A0827E62293002CFE8B /* SellListScreenController.swift in Sources */,
 				59A729C927E5CE86002CFE8B /* Constants.swift in Sources */,
 				59A729EB27E5E40B002CFE8B /* CallListScreenController.swift in Sources */,
+				59A72A1727E63DF7002CFE8B /* TodoNetworkManager.swift in Sources */,
 				59A72A0327E6228A002CFE8B /* BuyListScreenController.swift in Sources */,
 				59A729DC27E5CED3002CFE8B /* Typealiases.swift in Sources */,
 				59A729C827E5CE86002CFE8B /* Constants+API.swift in Sources */,
@@ -752,8 +774,10 @@
 				59A729E027E5D09C002CFE8B /* BaseViewController.swift in Sources */,
 				59A7297E27E5BA9D002CFE8B /* AppDelegate.swift in Sources */,
 				59A729DA27E5CED3002CFE8B /* Optional+Unwrap.swift in Sources */,
+				59A72A1527E63B25002CFE8B /* TodoService.swift in Sources */,
 				59A729FE27E61EA8002CFE8B /* CallListScreenViewModel.swift in Sources */,
 				59A7298827E5BA9D002CFE8B /* TodoApp.xcdatamodeld in Sources */,
+				59A72A1B27E64041002CFE8B /* ItemNoted.swift in Sources */,
 				59A72A0927E62293002CFE8B /* SellListScreenViewModel.swift in Sources */,
 				59A72A0227E6228A002CFE8B /* BuyListScreenViewModel.swift in Sources */,
 			);

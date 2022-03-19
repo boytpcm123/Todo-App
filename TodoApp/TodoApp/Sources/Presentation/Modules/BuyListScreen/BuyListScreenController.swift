@@ -22,7 +22,7 @@ class BuyListScreenController: BaseViewController {
     }
     
     // MARK: - PROPERTIES
-    private var viewModel = HomeScreenViewModel()
+    private var viewModel = BuyListScreenViewModel()
     private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {

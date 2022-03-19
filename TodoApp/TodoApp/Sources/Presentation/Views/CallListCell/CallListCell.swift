@@ -8,7 +8,11 @@
 import UIKit
 
 class CallListCell: UITableViewCell {
-
+    
+    // MARK: - OUTLET
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var phoneLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,10 +26,13 @@ class CallListCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        nameLabel.text = ""
+        phoneLabel.text = ""
     }
     
-//    override func configure<T>(data: T) {
-//        
-//    }
+    func bindData(_ userCall: UserCall) {
+        nameLabel.text = userCall.name
+        phoneLabel.text = userCall.number
+    }
     
 }
