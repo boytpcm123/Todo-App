@@ -25,6 +25,9 @@
 		59A729E227E5D10E002CFE8B /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A729E127E5D10E002CFE8B /* BaseViewModel.swift */; };
 		59A729E527E5D1BB002CFE8B /* HomeScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A729E327E5D1BB002CFE8B /* HomeScreenController.swift */; };
 		59A729E627E5D1BB002CFE8B /* HomeScreenController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59A729E427E5D1BB002CFE8B /* HomeScreenController.xib */; };
+		59A729E827E5DB78002CFE8B /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A729E727E5DB78002CFE8B /* HomeScreenViewModel.swift */; };
+		59A729EB27E5E40B002CFE8B /* CallListScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A729E927E5E40B002CFE8B /* CallListScreenController.swift */; };
+		59A729EC27E5E40B002CFE8B /* CallListScreenController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59A729EA27E5E40B002CFE8B /* CallListScreenController.xib */; };
 		AE3E018D7C276CA1B743E907 /* Pods_TodoAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CD4E5044158F165569506A /* Pods_TodoAppTests.framework */; };
 		B3E75976EC4305EF4940C7C8 /* Pods_TodoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B0A86789D71DFD048DA278 /* Pods_TodoApp.framework */; };
 /* End PBXBuildFile section */
@@ -71,6 +74,9 @@
 		59A729E127E5D10E002CFE8B /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		59A729E327E5D1BB002CFE8B /* HomeScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenController.swift; sourceTree = "<group>"; };
 		59A729E427E5D1BB002CFE8B /* HomeScreenController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeScreenController.xib; sourceTree = "<group>"; };
+		59A729E727E5DB78002CFE8B /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
+		59A729E927E5E40B002CFE8B /* CallListScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallListScreenController.swift; sourceTree = "<group>"; };
+		59A729EA27E5E40B002CFE8B /* CallListScreenController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallListScreenController.xib; sourceTree = "<group>"; };
 		648F5A4592F94BDD09AF8F2D /* Pods_TodoApp_TodoAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoApp_TodoAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71CD4E5044158F165569506A /* Pods_TodoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F5A3F85575148D86D0BA23D /* Pods-TodoAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoAppTests.release.xcconfig"; path = "Target Support Files/Pods-TodoAppTests/Pods-TodoAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -232,6 +238,7 @@
 		59A729C127E5CDE9002CFE8B /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				59A729E727E5DB78002CFE8B /* HomeScreenViewModel.swift */,
 				59A729E327E5D1BB002CFE8B /* HomeScreenController.swift */,
 				59A729E427E5D1BB002CFE8B /* HomeScreenController.xib */,
 			);
@@ -241,6 +248,8 @@
 		59A729C227E5CDF7002CFE8B /* CallListScreen */ = {
 			isa = PBXGroup;
 			children = (
+				59A729E927E5E40B002CFE8B /* CallListScreenController.swift */,
+				59A729EA27E5E40B002CFE8B /* CallListScreenController.xib */,
 			);
 			path = CallListScreen;
 			sourceTree = "<group>";
@@ -486,6 +495,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59A7298D27E5BA9E002CFE8B /* LaunchScreen.storyboard in Resources */,
+				59A729EC27E5E40B002CFE8B /* CallListScreenController.xib in Resources */,
 				59A7298A27E5BA9E002CFE8B /* Assets.xcassets in Resources */,
 				59A729E627E5D1BB002CFE8B /* HomeScreenController.xib in Resources */,
 			);
@@ -634,9 +644,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				59A729D827E5CED3002CFE8B /* Color+Application.swift in Sources */,
+				59A729E827E5DB78002CFE8B /* HomeScreenViewModel.swift in Sources */,
 				59A729E227E5D10E002CFE8B /* BaseViewModel.swift in Sources */,
 				59A729E527E5D1BB002CFE8B /* HomeScreenController.swift in Sources */,
 				59A729C927E5CE86002CFE8B /* Constants.swift in Sources */,
+				59A729EB27E5E40B002CFE8B /* CallListScreenController.swift in Sources */,
 				59A729DC27E5CED3002CFE8B /* Typealiases.swift in Sources */,
 				59A729C827E5CE86002CFE8B /* Constants+API.swift in Sources */,
 				59A729D927E5CED3002CFE8B /* UIView+Subviews.swift in Sources */,

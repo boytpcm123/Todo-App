@@ -11,6 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeScreenController" customModule="TodoApp" customModuleProvider="target">
             <connections>
+                <outlet property="buyListBtn" destination="jFk-qT-IxD" id="4px-E0-bgg"/>
+                <outlet property="callListBtn" destination="PrY-Rh-tlD" id="hyr-F4-4il"/>
+                <outlet property="sellListBtn" destination="F9r-jJ-k0p" id="eGl-2U-tbi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,25 +22,67 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thong" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ovo-jN-xIX">
-                    <rect key="frame" x="182.5" y="437.5" width="49" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="qFU-lW-R6E">
+                    <rect key="frame" x="107" y="293" width="200" height="310"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PrY-Rh-tlD">
+                            <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
+                            <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="200" id="80q-9K-Wm7"/>
+                                <constraint firstAttribute="height" constant="50" id="9mx-rb-kmB"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Call List"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFk-qT-IxD">
+                            <rect key="frame" x="0.0" y="130" width="200" height="50"/>
+                            <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Buy List"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9r-jJ-k0p">
+                            <rect key="frame" x="0.0" y="260" width="200" height="50"/>
+                            <color key="backgroundColor" systemColor="systemTealColor"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Sell List"/>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="jFk-qT-IxD" firstAttribute="width" secondItem="PrY-Rh-tlD" secondAttribute="width" id="21R-46-BUE"/>
+                        <constraint firstItem="F9r-jJ-k0p" firstAttribute="width" secondItem="PrY-Rh-tlD" secondAttribute="width" id="B1S-aQ-vQO"/>
+                        <constraint firstItem="F9r-jJ-k0p" firstAttribute="height" secondItem="PrY-Rh-tlD" secondAttribute="height" id="RFz-Mh-E1I"/>
+                        <constraint firstItem="jFk-qT-IxD" firstAttribute="height" secondItem="PrY-Rh-tlD" secondAttribute="height" id="zi3-ju-Kje"/>
+                    </constraints>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Ovo-jN-xIX" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="QPh-tz-yT9"/>
-                <constraint firstItem="Ovo-jN-xIX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zkf-mh-ToP"/>
+                <constraint firstItem="qFU-lW-R6E" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="AH6-wG-TY0"/>
+                <constraint firstItem="qFU-lW-R6E" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="roq-U1-8LL"/>
             </constraints>
-            <point key="canvasLocation" x="132" y="126"/>
+            <point key="canvasLocation" x="131.8840579710145" y="125.89285714285714"/>
         </view>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

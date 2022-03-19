@@ -19,8 +19,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
         
         // Set root
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.setRootViewController(HomeScreenController())
+        window = UIWindow(frame: UIScreen.main.bounds)
+        setRootViewController(HomeScreenController())
         
         return true
     }
@@ -28,7 +28,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     fileprivate func setRootViewController(_ viewController: UIViewController) {
         let navVC: UINavigationController = UINavigationController(rootViewController: viewController)
         navVC.setNavigationBarHidden(true, animated: true)
-        self.window?.rootViewController = navVC
-        self.window?.makeKeyAndVisible()
+        window?.rootViewController = navVC
+        window?.makeKeyAndVisible()
     }
 }

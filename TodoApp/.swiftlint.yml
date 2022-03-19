@@ -59,9 +59,9 @@ opt_in_rules:
   - single_test_class
   - sorted_first_last
   - static_operator
-  - strong_iboutlet
+  #- strong_iboutlet
   - toggle_bool
-  - type_contents_order
+  #- type_contents_order
   - unneeded_parentheses_in_closure_argument
   - unowned_variable_capture
   - untyped_error_in_catch
