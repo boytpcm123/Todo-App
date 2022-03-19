@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CallListScreenController" customModule="TodoApp" customModuleProvider="target">
             <connections>
+                <outlet property="callListTableView" destination="xgO-hK-TGg" id="vnd-HR-7B7"/>
                 <outlet property="customNavigationBar" destination="fHH-ch-wQF" id="dCg-Ij-Dnr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -32,17 +33,26 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                     <color key="backgroundColor" name="ThemeColor"/>
                 </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xgO-hK-TGg">
+                    <rect key="frame" x="0.0" y="100" width="414" height="796"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="mDK-BS-nVJ"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="xgO-hK-TGg" firstAttribute="leading" secondItem="mDK-BS-nVJ" secondAttribute="leading" id="08O-xS-xY3"/>
                 <constraint firstItem="fHH-ch-wQF" firstAttribute="top" secondItem="PGQ-Ua-dnP" secondAttribute="bottom" id="5WH-y9-W0k"/>
                 <constraint firstAttribute="trailing" secondItem="PGQ-Ua-dnP" secondAttribute="trailing" id="CI2-aZ-0hB"/>
                 <constraint firstItem="fHH-ch-wQF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FgR-qW-14K"/>
                 <constraint firstAttribute="trailing" secondItem="fHH-ch-wQF" secondAttribute="trailing" id="Kcg-Qr-o0G"/>
+                <constraint firstAttribute="bottom" secondItem="xgO-hK-TGg" secondAttribute="bottom" id="RPg-Fl-NXY"/>
                 <constraint firstItem="PGQ-Ua-dnP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="VNW-0b-8yI"/>
                 <constraint firstItem="fHH-ch-wQF" firstAttribute="top" secondItem="mDK-BS-nVJ" secondAttribute="top" id="cnB-WT-1wL"/>
+                <constraint firstItem="xgO-hK-TGg" firstAttribute="top" secondItem="fHH-ch-wQF" secondAttribute="bottom" id="gSh-7I-GYw"/>
                 <constraint firstItem="PGQ-Ua-dnP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rzv-qv-JPk"/>
+                <constraint firstItem="xgO-hK-TGg" firstAttribute="trailing" secondItem="mDK-BS-nVJ" secondAttribute="trailing" id="s1k-mf-Qog"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="105.80357142857143"/>
         </view>

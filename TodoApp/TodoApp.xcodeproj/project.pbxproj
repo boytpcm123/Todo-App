@@ -38,6 +38,9 @@
 		59A72A0827E62293002CFE8B /* SellListScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A72A0527E62293002CFE8B /* SellListScreenController.swift */; };
 		59A72A0927E62293002CFE8B /* SellListScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A72A0627E62293002CFE8B /* SellListScreenViewModel.swift */; };
 		59A72A0A27E62293002CFE8B /* SellListScreenController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59A72A0727E62293002CFE8B /* SellListScreenController.xib */; };
+		59A72A0F27E625DD002CFE8B /* CallListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A72A0D27E625DD002CFE8B /* CallListCell.swift */; };
+		59A72A1027E625DD002CFE8B /* CallListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59A72A0E27E625DD002CFE8B /* CallListCell.xib */; };
+		59A72A1227E62DFB002CFE8B /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A72A1127E62DFB002CFE8B /* UITableView+Extension.swift */; };
 		AE3E018D7C276CA1B743E907 /* Pods_TodoAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CD4E5044158F165569506A /* Pods_TodoAppTests.framework */; };
 		B3E75976EC4305EF4940C7C8 /* Pods_TodoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B0A86789D71DFD048DA278 /* Pods_TodoApp.framework */; };
 /* End PBXBuildFile section */
@@ -97,6 +100,9 @@
 		59A72A0527E62293002CFE8B /* SellListScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellListScreenController.swift; sourceTree = "<group>"; };
 		59A72A0627E62293002CFE8B /* SellListScreenViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellListScreenViewModel.swift; sourceTree = "<group>"; };
 		59A72A0727E62293002CFE8B /* SellListScreenController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SellListScreenController.xib; sourceTree = "<group>"; };
+		59A72A0D27E625DD002CFE8B /* CallListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallListCell.swift; sourceTree = "<group>"; };
+		59A72A0E27E625DD002CFE8B /* CallListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallListCell.xib; sourceTree = "<group>"; };
+		59A72A1127E62DFB002CFE8B /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		648F5A4592F94BDD09AF8F2D /* Pods_TodoApp_TodoAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoApp_TodoAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71CD4E5044158F165569506A /* Pods_TodoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F5A3F85575148D86D0BA23D /* Pods-TodoAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoAppTests.release.xcconfig"; path = "Target Support Files/Pods-TodoAppTests/Pods-TodoAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -341,6 +347,7 @@
 			children = (
 				59A729CF27E5CED3002CFE8B /* Color+Application.swift */,
 				59A729D027E5CED3002CFE8B /* UIView+Subviews.swift */,
+				59A72A1127E62DFB002CFE8B /* UITableView+Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -410,6 +417,8 @@
 		59A729EF27E5EB32002CFE8B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				59A72A0B27E62492002CFE8B /* CallListCell */,
+				59A72A0C27E6249E002CFE8B /* NoteListCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -421,6 +430,22 @@
 				59A729F927E5EDA5002CFE8B /* CustomNavigationBar.xib */,
 			);
 			path = NavigationBar;
+			sourceTree = "<group>";
+		};
+		59A72A0B27E62492002CFE8B /* CallListCell */ = {
+			isa = PBXGroup;
+			children = (
+				59A72A0D27E625DD002CFE8B /* CallListCell.swift */,
+				59A72A0E27E625DD002CFE8B /* CallListCell.xib */,
+			);
+			path = CallListCell;
+			sourceTree = "<group>";
+		};
+		59A72A0C27E6249E002CFE8B /* NoteListCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NoteListCell;
 			sourceTree = "<group>";
 		};
 		AA6F564D6C220CDEF375DF77 /* Frameworks */ = {
@@ -564,6 +589,7 @@
 				59A72A0A27E62293002CFE8B /* SellListScreenController.xib in Resources */,
 				59A729E627E5D1BB002CFE8B /* HomeScreenController.xib in Resources */,
 				59A72A0427E6228A002CFE8B /* BuyListScreenController.xib in Resources */,
+				59A72A1027E625DD002CFE8B /* CallListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,6 +736,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				59A729D827E5CED3002CFE8B /* Color+Application.swift in Sources */,
+				59A72A0F27E625DD002CFE8B /* CallListCell.swift in Sources */,
+				59A72A1227E62DFB002CFE8B /* UITableView+Extension.swift in Sources */,
 				59A729E827E5DB78002CFE8B /* HomeScreenViewModel.swift in Sources */,
 				59A729E227E5D10E002CFE8B /* BaseViewModel.swift in Sources */,
 				59A729F827E5ED99002CFE8B /* CustomNavigationBar.swift in Sources */,
