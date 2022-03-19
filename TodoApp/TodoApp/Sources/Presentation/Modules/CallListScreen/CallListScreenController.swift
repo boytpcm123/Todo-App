@@ -31,7 +31,6 @@ class CallListScreenController: BaseViewController {
     // MARK: - PROPERTIES
     private var viewModel = CallListScreenViewModel()
     private let disposeBag = DisposeBag()
-    private var userCalls: [UserCall] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,12 +44,29 @@ extension CallListScreenController {
     
     private func bindCallListData() {
         viewModel.fetchCallList()
+            .catchAndReturn([])
             .bind(to:
                     callListTableView.rx.items(
                         cellIdentifier: CallListCell.dequeueIdentifier,
-                        cellType: CallListCell.self)) { _, model, cell in
-                            cell.bindData(model)
+                        cellType: CallListCell.self)) { _, userCall, cell in
+                            cell.bindData(userCall)
                         }
                         .disposed(by: disposeBag)
+        
+        callListTableView.rx.modelSelected(UserCall.self)
+            .bind { userCall in
+                print(userCall.name.string)
+            }
+            .disposed(by: disposeBag)
+        
+        callListTableView.rx.setDelegate(self).disposed(by: disposeBag)
+    }
+}
+
+// MARK: - SUPPORT FUCTIONS
+extension CallListScreenController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
