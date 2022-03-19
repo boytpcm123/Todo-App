@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomNavigationBar" customModule="TodoApp" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="Mxy-7A-0Gk"/>
+                <outlet property="leftButton" destination="3DX-EO-QJk" id="66y-ox-H77"/>
+                <outlet property="rightButton" destination="nc7-ea-uVj" id="CdF-o3-DRL"/>
+                <outlet property="titleLabel" destination="MHo-LV-RPq" id="sN2-JC-CCl"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="CustomNavigationBar" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="376" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MV4-La-IyR">
+                    <rect key="frame" x="0.0" y="0.0" width="376" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DX-EO-QJk">
+                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="U2T-59-Jhz"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="icon-back"/>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHo-LV-RPq">
+                            <rect key="frame" x="52" y="7" width="272" height="30"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nc7-ea-uVj">
+                            <rect key="frame" x="332" y="8" width="44" height="28"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="bid-IX-oh0"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="icon-more">
+                                <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="3DX-EO-QJk" secondAttribute="bottom" id="RQy-Av-MAi"/>
+                        <constraint firstItem="nc7-ea-uVj" firstAttribute="top" secondItem="MV4-La-IyR" secondAttribute="top" constant="8" id="eAo-fA-f6h"/>
+                        <constraint firstItem="3DX-EO-QJk" firstAttribute="top" secondItem="MV4-La-IyR" secondAttribute="top" id="lQX-R9-5op"/>
+                        <constraint firstAttribute="bottom" secondItem="nc7-ea-uVj" secondAttribute="bottom" constant="8" id="xXn-Pl-5o2"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" name="ThemeColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="MV4-La-IyR" secondAttribute="trailing" id="4vj-QQ-7fG"/>
+                <constraint firstItem="MV4-La-IyR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="8np-zN-BLw"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="MV4-La-IyR" secondAttribute="bottom" id="Ece-QN-tz4"/>
+                <constraint firstItem="MV4-La-IyR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="pS9-R7-6WX"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="65.217391304347828" y="199.55357142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon-back" width="33" height="33"/>
+        <image name="icon-more" width="33" height="33"/>
+        <namedColor name="ThemeColor">
+            <color red="0.086274509803921567" green="0.090196078431372548" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

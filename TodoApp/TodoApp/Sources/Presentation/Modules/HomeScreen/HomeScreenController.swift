@@ -28,6 +28,10 @@ class HomeScreenController: BaseViewController {
         bindBuyListButton()
         bindSellListButton()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
 }
 
 // MARK: - SUPPORT FUCTIONS
@@ -37,7 +41,6 @@ extension HomeScreenController {
         callListBtn.rx.tap
             .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext: { _ in
-                print("Tap call list button")
                 let callListVC = CallListScreenController()
                 self.navigationController?.pushViewController(callListVC, animated: true)
             })

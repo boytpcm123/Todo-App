@@ -34,7 +34,7 @@ extension BaseViewController: UIGestureRecognizerDelegate {
 
 // MARK: - CONFIG
 extension BaseViewController {
-    override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
+    // override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
 }
 
 // MARK: - SUPPORT FUCTIONS
