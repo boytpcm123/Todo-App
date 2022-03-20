@@ -14,20 +14,19 @@ struct CallListScreenViewModel {
     // MARK: - PROPERTIES
     private let disposeBag = DisposeBag()
     let showLoading = BehaviorSubject<Bool>(value: true)
+    let publishCallList = PublishSubject<[UserCall]>()
     
-    func fetchCallList() -> Observable<[UserCall]> {
-        return Observable.create { observer in
-            TodoNetworkManager.shared.getCallList()
-                .subscribe(onSuccess: { userCalls in
-                    observer.onNext(userCalls)
-                    showLoading.onNext(false)
-                }, onFailure: { error in
-                    observer.onError(error)
-                    showLoading.onNext(false)
-                })
-                .disposed(by: disposeBag)
-            return Disposables.create()
-        }
+    func fetchCallList() {
+        
+        TodoNetworkManager.shared.getCallList()
+            .subscribe(onSuccess: { callList in
+                publishCallList.onNext(callList)
+                showLoading.onNext(false)
+            }, onFailure: { error in
+                publishCallList.onError(error)
+                showLoading.onNext(false)
+            })
+            .disposed(by: disposeBag)
     }
     
 }

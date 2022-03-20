@@ -32,26 +32,44 @@ class CallListScreenController: BaseViewController {
     // MARK: - PROPERTIES
     private var viewModel = CallListScreenViewModel()
     private let disposeBag = DisposeBag()
+    private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bindCallListData()
+        bindLoadingUI()
+        bindTableViewData()
+        fetchCallList()
     }
 }
 
 // MARK: - SUPPORT FUCTIONS
 extension CallListScreenController {
     
-    private func bindCallListData() {
+    private func bindLoadingUI() {
+        
+        callListTableView.refreshControl = refreshControl
+        refreshControl.rx
+            .controlEvent(.valueChanged)
+            .asObservable()
+            .subscribe(onNext: { _ in
+                self.fetchCallList()
+            })
+            .disposed(by: disposeBag)
         
         viewModel.showLoading
             .subscribe(onNext: { isLoading in
                 isLoading ? ProgressHUD.show() : ProgressHUD.dismiss()
+                if self.refreshControl.isRefreshing && !isLoading {
+                    self.refreshControl.endRefreshing()
+                }
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func bindTableViewData() {
         
-        viewModel.fetchCallList()
+        viewModel.publishCallList
             .catchAndReturn([])
             .bind(to:
                     callListTableView.rx.items(
@@ -68,5 +86,10 @@ extension CallListScreenController {
                 print(userCall.name.string)
             }
             .disposed(by: disposeBag)
+        
+    }
+    
+    private func fetchCallList() {
+        viewModel.fetchCallList()
     }
 }

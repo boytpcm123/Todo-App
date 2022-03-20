@@ -32,26 +32,44 @@ class BuyListScreenController: BaseViewController {
     // MARK: - PROPERTIES
     private var viewModel = BuyListScreenViewModel()
     private let disposeBag = DisposeBag()
+    private let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bindBuyListData()
+        bindLoadingUI()
+        bindTableViewData()
+        fetchBuyList()
     }
 }
 
 // MARK: - SUPPORT FUCTIONS
 extension BuyListScreenController {
     
-    private func bindBuyListData() {
+    private func bindLoadingUI() {
+        
+        buyListTableView.refreshControl = refreshControl
+        refreshControl.rx
+            .controlEvent(.valueChanged)
+            .asObservable()
+            .subscribe(onNext: { _ in
+                self.fetchBuyList()
+            })
+            .disposed(by: disposeBag)
         
         viewModel.showLoading
             .subscribe(onNext: { isLoading in
                 isLoading ? ProgressHUD.show() : ProgressHUD.dismiss()
+                if self.refreshControl.isRefreshing && !isLoading {
+                    self.refreshControl.endRefreshing()
+                }
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func bindTableViewData() {
         
-        viewModel.fetchBuyList()
+        viewModel.publishBuyList
             .catchAndReturn([])
             .bind(to:
                     buyListTableView.rx.items(
@@ -68,5 +86,9 @@ extension BuyListScreenController {
                 print(itemNoted.name.string)
             }
             .disposed(by: disposeBag)
+    }
+    
+    private func fetchBuyList() {
+        viewModel.fetchBuyList()
     }
 }

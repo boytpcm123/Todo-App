@@ -13,17 +13,19 @@ struct SellListScreenViewModel {
     
     // MARK: - PROPERTIES
     private let disposeBag = DisposeBag()
+    let showLoading = BehaviorSubject<Bool>(value: true)
+    let publishSellList = PublishSubject<[ItemNoted]>()
     
-    func fetchSellList() -> Observable<[ItemNoted]> {
-        return Observable.create { observer in
-            TodoRepository.shared.getSellList()
-                .subscribe(onSuccess: { itemNoteds in
-                    observer.onNext(itemNoteds)
-                }, onFailure: { error in
-                    observer.onError(error)
-                })
-                .disposed(by: disposeBag)
-            return Disposables.create()
-        }
+    func fetchSellList() {
+        
+        TodoRepository.shared.getSellList()
+            .subscribe(onSuccess: { itemNoteds in
+                publishSellList.onNext(itemNoteds)
+                showLoading.onNext(false)
+            }, onFailure: { error in
+                publishSellList.onError(error)
+                showLoading.onNext(false)
+            })
+            .disposed(by: disposeBag)
     }
 }

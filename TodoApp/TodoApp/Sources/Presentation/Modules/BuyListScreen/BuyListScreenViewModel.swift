@@ -14,21 +14,19 @@ struct BuyListScreenViewModel {
     // MARK: - PROPERTIES
     private let disposeBag = DisposeBag()
     let showLoading = BehaviorSubject<Bool>(value: true)
+    let publishBuyList = PublishSubject<[ItemNoted]>()
     
-    func fetchBuyList() -> Observable<[ItemNoted]> {
-        return Observable.create { observer in
-            TodoNetworkManager.shared.getBuyList()
-                .subscribe(onSuccess: { listItem in
-                    TodoRepository.shared.addListItem(items: listItem)
-                    observer.onNext(listItem)
-                    showLoading.onNext(false)
-                }, onFailure: { error in
-                    observer.onError(error)
-                    showLoading.onNext(false)
-                })
-                .disposed(by: disposeBag)
-            return Disposables.create()
-        }
+    func fetchBuyList() {
+        
+        TodoNetworkManager.shared.getBuyList()
+            .subscribe(onSuccess: { buyList in
+                TodoRepository.shared.addListItem(items: buyList)
+                publishBuyList.onNext(buyList)
+                showLoading.onNext(false)
+            }, onFailure: { error in
+                publishBuyList.onError(error)
+                showLoading.onNext(false)
+            })
+            .disposed(by: disposeBag)
     }
-    
 }

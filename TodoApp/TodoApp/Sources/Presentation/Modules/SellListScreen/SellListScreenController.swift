@@ -32,20 +32,43 @@ class SellListScreenController: BaseViewController {
     // MARK: - PROPERTIES
     private var viewModel = SellListScreenViewModel()
     private let disposeBag = DisposeBag()
+    private let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bindSellListData()
+        bindLoadingUI()
+        bindTableViewData()
+        fetchSellList()
     }
 }
 
 // MARK: - SUPPORT FUCTIONS
 extension SellListScreenController {
     
-    private func bindSellListData() {
+    private func bindLoadingUI() {
         
-        viewModel.fetchSellList()
+        sellListTableView.refreshControl = refreshControl
+        refreshControl.rx
+            .controlEvent(.valueChanged)
+            .asObservable()
+            .subscribe(onNext: { _ in
+                self.fetchSellList()
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.showLoading
+            .subscribe(onNext: { isLoading in
+                if self.refreshControl.isRefreshing && !isLoading {
+                    self.refreshControl.endRefreshing()
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func bindTableViewData() {
+        
+        viewModel.publishSellList
             .catchAndReturn([])
             .bind(to:
                     sellListTableView.rx.items(
@@ -62,5 +85,9 @@ extension SellListScreenController {
                 print(itemNoted.name.string)
             }
             .disposed(by: disposeBag)
+    }
+    
+    private func fetchSellList() {
+        viewModel.fetchSellList()
     }
 }
