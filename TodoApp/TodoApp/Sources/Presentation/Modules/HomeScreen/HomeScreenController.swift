@@ -66,5 +66,4 @@ extension HomeScreenController {
             })
             .disposed(by: disposeBag)
     }
-    
 }

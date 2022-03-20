@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (5.5.0)
+  - MagicalRecord (2.4.0):
+    - MagicalRecord/Core (= 2.4.0)
+  - MagicalRecord/Core (2.4.0)
   - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
   - Moya/RxSwift (15.0.0):
@@ -15,6 +18,7 @@ PODS:
   - Wormholy (1.6.5)
 
 DEPENDENCIES:
+  - MagicalRecord (from `https://github.com/magicalpanda/MagicalRecord`)
   - Moya/RxSwift (~> 15.0.0)
   - RxCocoa (~> 6.5.0)
   - SwiftLint (~> 0.46.5)
@@ -30,8 +34,18 @@ SPEC REPOS:
     - SwiftLint
     - Wormholy
 
+EXTERNAL SOURCES:
+  MagicalRecord:
+    :git: https://github.com/magicalpanda/MagicalRecord
+
+CHECKOUT OPTIONS:
+  MagicalRecord:
+    :commit: 6031f608b79c1d6802007aaed6efd100e11f59ba
+    :git: https://github.com/magicalpanda/MagicalRecord
+
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
+  MagicalRecord: 1f22a766156474d9f46a9b1e1ce59ca9e37830fc
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
@@ -39,6 +53,6 @@ SPEC CHECKSUMS:
   SwiftLint: 2c16e8fa99dac2e440dc0c70ea74d2532048f6cf
   Wormholy: 3252bc3e55a1847ef9a0976c1377bd77bf3635fa
 
-PODFILE CHECKSUM: ef90d7e94d3a3f543604f1b090f74717ba972ed6
+PODFILE CHECKSUM: fe9e5fac267737ea43997fcb01a2903f6176205c
 
 COCOAPODS: 1.11.3

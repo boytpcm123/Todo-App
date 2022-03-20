@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import MagicalRecord
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,15 +19,27 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         
+        // Setup MagicalRecord
+        MagicalRecord.setupAutoMigratingCoreDataStack()
+        
         // Set root
-        window = UIWindow(frame: UIScreen.main.bounds)
         setRootViewController(HomeScreenController())
         
         return true
     }
     
-    fileprivate func setRootViewController(_ viewController: UIViewController) {
+    func applicationWillTerminate(_ application: UIApplication) {
         
+        // Clean up data
+        MagicalRecord.cleanUp()
+    }
+}
+
+// MARK: - SUPPORT FUCTIONS
+extension AppDelegate {
+    
+    fileprivate func setRootViewController(_ viewController: UIViewController) {
+        window = UIWindow(frame: UIScreen.main.bounds)
         let navVC: UINavigationController = UINavigationController(rootViewController: viewController)
         navVC.navigationBar.isHidden = true
         window?.rootViewController = navVC

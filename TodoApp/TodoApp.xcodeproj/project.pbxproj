@@ -47,6 +47,7 @@
 		59A72A1727E63DF7002CFE8B /* TodoNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A72A1627E63DF7002CFE8B /* TodoNetworkManager.swift */; };
 		59A72A1927E63F77002CFE8B /* UserCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A72A1827E63F77002CFE8B /* UserCall.swift */; };
 		59A72A1B27E64041002CFE8B /* ItemNoted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A72A1A27E64041002CFE8B /* ItemNoted.swift */; };
+		59B5C71F27E70D19001A88D9 /* TodoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B5C71E27E70D19001A88D9 /* TodoRepository.swift */; };
 		AE3E018D7C276CA1B743E907 /* Pods_TodoAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CD4E5044158F165569506A /* Pods_TodoAppTests.framework */; };
 		B3E75976EC4305EF4940C7C8 /* Pods_TodoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B0A86789D71DFD048DA278 /* Pods_TodoApp.framework */; };
 /* End PBXBuildFile section */
@@ -115,6 +116,7 @@
 		59A72A1627E63DF7002CFE8B /* TodoNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoNetworkManager.swift; sourceTree = "<group>"; };
 		59A72A1827E63F77002CFE8B /* UserCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCall.swift; sourceTree = "<group>"; };
 		59A72A1A27E64041002CFE8B /* ItemNoted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemNoted.swift; sourceTree = "<group>"; };
+		59B5C71E27E70D19001A88D9 /* TodoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRepository.swift; sourceTree = "<group>"; };
 		648F5A4592F94BDD09AF8F2D /* Pods_TodoApp_TodoAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoApp_TodoAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71CD4E5044158F165569506A /* Pods_TodoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F5A3F85575148D86D0BA23D /* Pods-TodoAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoAppTests.release.xcconfig"; path = "Target Support Files/Pods-TodoAppTests/Pods-TodoAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 			isa = PBXGroup;
 			children = (
 				59A7298627E5BA9D002CFE8B /* TodoApp.xcdatamodeld */,
+				59B5C71E27E70D19001A88D9 /* TodoRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -788,6 +791,7 @@
 				59A72A1B27E64041002CFE8B /* ItemNoted.swift in Sources */,
 				59A72A0927E62293002CFE8B /* SellListScreenViewModel.swift in Sources */,
 				59A72A0227E6228A002CFE8B /* BuyListScreenViewModel.swift in Sources */,
+				59B5C71F27E70D19001A88D9 /* TodoRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
