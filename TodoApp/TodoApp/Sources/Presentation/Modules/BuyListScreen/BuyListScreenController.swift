@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import ProgressHUD
 
 class BuyListScreenController: BaseViewController {
     
@@ -43,6 +44,13 @@ class BuyListScreenController: BaseViewController {
 extension BuyListScreenController {
     
     private func bindBuyListData() {
+        
+        viewModel.showLoading
+            .subscribe(onNext: { isLoading in
+                isLoading ? ProgressHUD.show() : ProgressHUD.dismiss()
+            })
+            .disposed(by: disposeBag)
+        
         viewModel.fetchBuyList()
             .catchAndReturn([])
             .bind(to:

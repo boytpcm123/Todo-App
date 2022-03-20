@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import ProgressHUD
 
 class CallListScreenController: BaseViewController {
     
@@ -43,6 +44,13 @@ class CallListScreenController: BaseViewController {
 extension CallListScreenController {
     
     private func bindCallListData() {
+        
+        viewModel.showLoading
+            .subscribe(onNext: { isLoading in
+                isLoading ? ProgressHUD.show() : ProgressHUD.dismiss()
+            })
+            .disposed(by: disposeBag)
+        
         viewModel.fetchCallList()
             .catchAndReturn([])
             .bind(to:

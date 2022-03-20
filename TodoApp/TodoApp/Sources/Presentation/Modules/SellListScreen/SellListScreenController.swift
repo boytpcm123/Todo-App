@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import ProgressHUD
 
 class SellListScreenController: BaseViewController {
     
@@ -43,6 +44,7 @@ class SellListScreenController: BaseViewController {
 extension SellListScreenController {
     
     private func bindSellListData() {
+        
         viewModel.fetchSellList()
             .catchAndReturn([])
             .bind(to:

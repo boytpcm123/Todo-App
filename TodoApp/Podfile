@@ -4,6 +4,9 @@ inhibit_all_warnings!
 
 def working_pods
   
+  # UI
+  pod 'ProgressHUD', '~> 2.70'
+  
   # Rx
   pod 'RxCocoa', '~> 6.5.0'
   pod 'Moya/RxSwift', '~> 15.0.0'

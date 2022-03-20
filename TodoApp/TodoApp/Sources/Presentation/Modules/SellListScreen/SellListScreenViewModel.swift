@@ -19,7 +19,6 @@ struct SellListScreenViewModel {
             TodoRepository.shared.getSellList()
                 .subscribe(onSuccess: { itemNoteds in
                     observer.onNext(itemNoteds)
-                    observer.onCompleted()
                 }, onFailure: { error in
                     observer.onError(error)
                 })
