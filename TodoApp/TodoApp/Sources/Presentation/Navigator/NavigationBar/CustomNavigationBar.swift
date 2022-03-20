@@ -54,6 +54,8 @@ extension CustomNavigationBar {
     }
     
     private func bindLeftButton() {
+        
+        leftButton.accessibilityIdentifier = "leftButton"
         leftButton.rx.tap
             .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext: { _ in
