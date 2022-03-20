@@ -14,7 +14,7 @@ struct SellListScreenViewModel {
     // MARK: - PROPERTIES
     private let disposeBag = DisposeBag()
     
-    func fetchBuyList() -> Observable<[ItemNoted]> {
+    func fetchSellList() -> Observable<[ItemNoted]> {
         return Observable.create { observer in
             TodoRepository.shared.getSellList()
                 .subscribe(onSuccess: { itemNoteds in

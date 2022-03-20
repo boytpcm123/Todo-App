@@ -35,15 +35,15 @@ class SellListScreenController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bindBuyListData()
+        bindSellListData()
     }
 }
 
 // MARK: - SUPPORT FUCTIONS
 extension SellListScreenController {
     
-    private func bindBuyListData() {
-        viewModel.fetchBuyList()
+    private func bindSellListData() {
+        viewModel.fetchSellList()
             .catchAndReturn([])
             .bind(to:
                     sellListTableView.rx.items(
