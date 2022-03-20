@@ -16,7 +16,7 @@ struct SellListScreenViewModel {
     
     func fetchBuyList() -> Observable<[ItemNoted]> {
         return Observable.create { observer in
-            TodoNetworkManager.shared.getBuyList()
+            TodoRepository.shared.getSellList()
                 .subscribe(onSuccess: { itemNoteds in
                     observer.onNext(itemNoteds)
                     observer.onCompleted()

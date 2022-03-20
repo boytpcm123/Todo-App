@@ -18,6 +18,10 @@ struct TodoNetworkManager {
         let plugin: PluginType = NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))
         provider = MoyaProvider<TodoService>(plugins: [])
     }
+}
+
+// MARK: - PUBLIC FUNCTIONS
+extension TodoNetworkManager {
     
     func getCallList() -> Single<[UserCall]> {
         return provider.rx

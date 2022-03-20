@@ -7,53 +7,106 @@
 
 import Foundation
 import MagicalRecord
+import RxSwift
 
-class TodoRepository: NSObject {
+struct TodoRepository {
     
-    func addProduct(itemNoted: ItemNoted) {
-        MagicalRecord.save { (context) -> Void in
-            var entity = ItemSell.mr_create(in: context)
-            entity.id = itemNoted.id
-            entity.name = itemNoted.name
-            entity.price = itemNoted.price
-            entity.quantity = itemNoted.quantity
-            entity.type = itemNoted.type
-        }
-    }
+    static let shared = TodoRepository()
     
-    func updateProduct(product: ItemNoted) {
-        MagicalRecord.saveUsingCurrentThreadContextWithBlockAndWait { (context) -> Void in
-            var predicate = NSPredicate(format: "id = '\(product.id)'")
-            if var entity = ItemSell.MR_findFirstWithPredicate(predicate, inContext: context) as? Product {
-                entity.name = product.name
-                entity.price = product.price
+    private init() {}
+}
+
+// MARK: - PUBLIC FUNCTIONS
+extension TodoRepository {
+    
+    func addListItem(items: [ItemNoted]) {
+        
+        for item in items {
+            if checkExistItem(item) {
+                self.updateItem(item)
+            } else {
+                self.addItem(item)
             }
         }
     }
     
-    func deleteProduct(productId: String) {
-        MagicalRecord.saveUsingCurrentThreadContextWithBlockAndWait { (context) -> Void in
-            var predicate = NSPredicate(format: "id = '\(productId)'")
-            ItemSell.MR_deleteAllMatchingPredicate(predicate, inContext: context)
+    func getSellList() -> Single<[ItemNoted]> {
+        let itemSells = getItemSells()
+        var sellList: [ItemNoted] = []
+        for itemSell in itemSells {
+            let itemNoted: ItemNoted = ItemNoted(id: Int(itemSell.id),
+                                                 name: itemSell.nameItem,
+                                                 price: Int(itemSell.price),
+                                                 quantity: Int(itemSell.quantity),
+                                                 type: Int(itemSell.type))
+            sellList.append(itemNoted)
+        }
+        return Single<[ItemNoted]>.create { single in
+            single(.success(sellList))
+            return Disposables.create()
         }
     }
+}
+
+// MARK: - SUPPORT FUNCTIONS
+extension TodoRepository {
     
-    func getProductById(productId: String) -> ItemSell? {
-        var context = NSManagedObjectContext.MR_contextForCurrentThread()
-        var predicate = NSPredicate(format: "id = '\(productId)'")
-        if let product = ItemSell.MR_findFirstWithPredicate(predicate, inContext: context) as? Product {
-            return product
-        }
-        return nil
-    }
-    
-    func getProducts() -> [ItemSell]? {
-        var context = NSManagedObjectContext.MR_contextForCurrentThread()
+    private func addItem(_ item: ItemNoted) {
         
-        if let products = ItemSell.MR_findAllInContext(context) as [Product]? {
-            return products
+        MagicalRecord.save({ context in
+            let entity = ItemSell.mr_createEntity(in: context)
+            entity?.id = Int32(item.id)
+            entity?.nameItem = item.name
+            entity?.price = Int32(item.price ?? 0)
+            entity?.quantity = Int32(item.quantity ?? 0)
+            entity?.type = Int32(item.type ?? 0)
+        })
+    }
+    
+    private func checkExistItem(_ item: ItemNoted) -> Bool {
+        
+        let context = NSManagedObjectContext.mr_contextForCurrentThread()
+        let predicate = NSPredicate(format: "id = '\(item.id)'")
+        return ItemSell.mr_findFirst(with: predicate, in: context) != nil
+    }
+    
+    private func updateItem(_ item: ItemNoted) {
+        
+        MagicalRecord.save({ context in
+            let predicate = NSPredicate(format: "id = '\(item.id)'")
+            guard let entity = ItemSell.mr_findFirst(with: predicate, in: context) else { return }
+            entity.nameItem = item.name
+            entity.price = Int32(item.price ?? 0)
+            entity.quantity = Int32(item.quantity ?? 0)
+            entity.type = Int32(item.type ?? 0)
+        })
+    }
+    
+    private func deleteItem(_ itemId: String) {
+        
+        MagicalRecord.save(blockAndWait: { context in
+            let predicate = NSPredicate(format: "id = '\(itemId)'")
+            ItemSell.mr_deleteAll(matching: predicate, in: context)
+        })
+    }
+    
+    private func getItemSellById(_ itemId: String) -> ItemSell? {
+        
+        let context = NSManagedObjectContext.mr_contextForCurrentThread()
+        let predicate = NSPredicate(format: "id = '\(itemId)'")
+        if let itemSell = ItemSell.mr_findFirst(with: predicate, in: context) {
+            return itemSell
         }
         return nil
     }
     
+    private func getItemSells() -> [ItemSell] {
+        
+        let context = NSManagedObjectContext.mr_contextForCurrentThread()
+        // swiftlint:disable:next force_unwrapping
+        if let itemSells = ItemSell.mr_findAll(in: context)! as? [ItemSell] {
+            return itemSells
+        }
+        return []
+    }
 }

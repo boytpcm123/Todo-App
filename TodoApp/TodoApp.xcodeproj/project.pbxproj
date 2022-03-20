@@ -396,8 +396,8 @@
 		59A729DD27E5CF36002CFE8B /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				59A7298627E5BA9D002CFE8B /* TodoApp.xcdatamodeld */,
 				59B5C71E27E70D19001A88D9 /* TodoRepository.swift */,
+				59A7298627E5BA9D002CFE8B /* TodoApp.xcdatamodeld */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
