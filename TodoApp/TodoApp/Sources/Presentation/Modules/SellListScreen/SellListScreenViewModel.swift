@@ -28,4 +28,15 @@ struct SellListScreenViewModel {
             })
             .disposed(by: disposeBag)
     }
+    
+    func deleteSellItem(_ itemNoted: ItemNoted) {
+        
+        TodoRepository.shared.deleteItem(itemNoted)
+            .subscribe(onSuccess: { itemNoteds in
+                publishSellList.onNext(itemNoteds)
+            }, onFailure: { error in
+                publishSellList.onError(error)
+            })
+            .disposed(by: disposeBag)
+    }
 }

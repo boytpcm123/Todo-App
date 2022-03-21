@@ -33,7 +33,7 @@ class SellListScreenController: BaseViewController {
     private var viewModel = SellListScreenViewModel()
     private let disposeBag = DisposeBag()
     private let refreshControl = UIRefreshControl()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -83,6 +83,12 @@ extension SellListScreenController {
             .bind { [weak self] itemNoted, indexPath in
                 self?.sellListTableView.deselectRow(at: indexPath, animated: true)
                 print(itemNoted.name.string)
+            }
+            .disposed(by: disposeBag)
+        
+        sellListTableView.rx.modelDeleted(ItemNoted.self)
+            .bind { [weak self] itemNoted in
+                self?.viewModel.deleteSellItem(itemNoted)
             }
             .disposed(by: disposeBag)
     }
