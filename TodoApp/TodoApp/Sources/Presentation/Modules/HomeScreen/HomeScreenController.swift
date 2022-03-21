@@ -37,7 +37,7 @@ class HomeScreenController: BaseViewController {
 // MARK: - SUPPORT FUCTIONS
 extension HomeScreenController {
     
-    fileprivate func bindCallListButton() {
+    private func bindCallListButton() {
         callListBtn.rx.tap
             .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext: { _ in
@@ -47,7 +47,7 @@ extension HomeScreenController {
             .disposed(by: disposeBag)
     }
     
-    fileprivate func bindBuyListButton() {
+    private func bindBuyListButton() {
         buyListBtn.rx.tap
             .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext: { _ in
@@ -57,7 +57,7 @@ extension HomeScreenController {
             .disposed(by: disposeBag)
     }
     
-    fileprivate func bindSellListButton() {
+    private func bindSellListButton() {
         sellListBtn.rx.tap
             .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext: { _ in
