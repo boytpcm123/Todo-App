@@ -16,7 +16,6 @@
 		59A7298D27E5BA9E002CFE8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59A7298B27E5BA9E002CFE8B /* LaunchScreen.storyboard */; };
 		59A7299827E5BA9E002CFE8B /* TodoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A7299727E5BA9E002CFE8B /* TodoAppTests.swift */; };
 		59A729A227E5BA9E002CFE8B /* TodoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A729A127E5BA9E002CFE8B /* TodoAppUITests.swift */; };
-		59A729A427E5BA9E002CFE8B /* TodoAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A729A327E5BA9E002CFE8B /* TodoAppUITestsLaunchTests.swift */; };
 		59A729C827E5CE86002CFE8B /* Constants+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A729C627E5CE85002CFE8B /* Constants+API.swift */; };
 		59A729C927E5CE86002CFE8B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A729C727E5CE85002CFE8B /* Constants.swift */; };
 		59A729D827E5CED3002CFE8B /* Color+Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A729CF27E5CED3002CFE8B /* Color+Application.swift */; };
@@ -85,7 +84,6 @@
 		59A7299727E5BA9E002CFE8B /* TodoAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoAppTests.swift; sourceTree = "<group>"; };
 		59A7299D27E5BA9E002CFE8B /* TodoAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		59A729A127E5BA9E002CFE8B /* TodoAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoAppUITests.swift; sourceTree = "<group>"; };
-		59A729A327E5BA9E002CFE8B /* TodoAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		59A729C627E5CE85002CFE8B /* Constants+API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Constants+API.swift"; sourceTree = "<group>"; };
 		59A729C727E5CE85002CFE8B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		59A729CF27E5CED3002CFE8B /* Color+Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Application.swift"; sourceTree = "<group>"; };
@@ -197,7 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				59A729A127E5BA9E002CFE8B /* TodoAppUITests.swift */,
-				59A729A327E5BA9E002CFE8B /* TodoAppUITestsLaunchTests.swift */,
 			);
 			path = TodoAppUITests;
 			sourceTree = "<group>";
@@ -825,7 +822,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59A729A427E5BA9E002CFE8B /* TodoAppUITestsLaunchTests.swift in Sources */,
 				59A729A227E5BA9E002CFE8B /* TodoAppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,9 +14,9 @@ struct CallListScreenViewModel {
     // MARK: - PROPERTIES
     private let disposeBag = DisposeBag()
     let showLoading = BehaviorSubject<Bool>(value: true)
-    public let publishCallList = PublishSubject<[UserCall]>()
+    let publishCallList = PublishSubject<[UserCall]>()
     
-    public func fetchCallList() {
+    func fetchCallList() {
         
         TodoNetworkManager.shared.getCallList()
             .subscribe(onSuccess: { callList in

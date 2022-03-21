@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import Nimble
 
 class TodoAppUITests: XCTestCase {
     
@@ -55,7 +56,7 @@ extension TodoAppUITests {
         
         app.launch()
         tapOpenListScreen_WhenTap_NavigationToListScreen(sellListText)
-        openListScreen_WhenOpen_CallDataAndShowListOnTable(waitFor: 0)
+        openListScreen_WhenOpen_CallDataAndShowListOnTable(waitFor: 1)
     }
 }
 
@@ -65,26 +66,24 @@ extension TodoAppUITests {
     private func checkIsHomeScreen_WhenOpen_ShowThreeButton() {
         
         let callListBtn = app.buttons[callListText]
-        XCTAssertTrue(callListBtn.exists)
+        expect(callListBtn.exists).to(beTrue(), description: "Button exist")
         let buyListBtn = app.buttons[buyListText]
-        XCTAssertTrue(buyListBtn.exists)
+        expect(buyListBtn.exists).to(beTrue(), description: "Button exist")
         let sellListBtn = app.buttons[sellListText]
-        XCTAssertTrue(sellListBtn.exists)
+        expect(sellListBtn.exists).to(beTrue(), description: "Button exist")
     }
     
     private func openListScreen_WhenOpen_CallDataAndShowListOnTable(waitFor: Int) {
         
         let tableView = app.tables.element(boundBy: 0)
-        XCTAssertTrue(tableView.exists)
-        
-        let exp = expectation(description: "tableView load data after fetch list")
-        exp.fulfill()
-        
-        if waitFor > 0 { sleep(UInt32(waitFor)) }
-        waitForExpectations(timeout: TimeInterval(waitFor), handler: nil)
+        expect(tableView.exists).to(beTrue(), description: "Tableview exist")
         
         // swiftlint:disable:next empty_count
-        XCTAssertTrue(tableView.cells.count > 0)
+        expect(tableView.cells.count > 0)
+            .toEventually(beTrue(),
+                          timeout: .seconds(waitFor),
+                          description: "tableView have data after fetch list")
+        
     }
     
     private func tapOpenListScreen_WhenTap_NavigationToListScreen(_ titleScreen: String) {
@@ -94,7 +93,8 @@ extension TodoAppUITests {
         let callListBtn = app.buttons[titleScreen]
         callListBtn.tap()
         
-        XCTAssertTrue(app.staticTexts[titleScreen].exists)
+        let titleScreen = app.staticTexts[titleScreen]
+        expect(titleScreen.exists).to(beTrue(), description: "Title Screen exist")
     }
     
     private func openCallScreen_WhenOpen_ShowNavAndBackToHome(titleScreen: String) {
@@ -102,7 +102,7 @@ extension TodoAppUITests {
         tapOpenListScreen_WhenTap_NavigationToListScreen(titleScreen)
         
         let backBtn = app.buttons["leftButton"]
-        XCTAssertTrue(backBtn.exists)
+        expect(backBtn.exists).to(beTrue(), description: "Button exist")
         backBtn.tap()
         
         checkIsHomeScreen_WhenOpen_ShowThreeButton()
