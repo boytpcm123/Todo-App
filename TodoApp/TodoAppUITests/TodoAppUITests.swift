@@ -6,37 +6,105 @@
 //
 
 import XCTest
+import Nimble
 
 class TodoAppUITests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
+    
+    private var app: XCUIApplication!
+    private let callListText = "Call List"
+    private let buyListText = "Buy List"
+    private let sellListText = "Sell List"
+    
+    override func setUp() {
+        super.setUp()
+        app = XCUIApplication()
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    override func tearDown() {
+        app = nil
+        super.tearDown()
     }
+}
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
+// MARK: - TEST FUNCTIONS
+extension TodoAppUITests {
+    
+    func testNavigationApp() {
+        
         app.launch()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        openCallScreen_WhenOpen_ShowNavAndBackToHome(titleScreen: callListText)
+        openCallScreen_WhenOpen_ShowNavAndBackToHome(titleScreen: buyListText)
+        openCallScreen_WhenOpen_ShowNavAndBackToHome(titleScreen: sellListText)
     }
+    
+    func testOpenCallListAndLoadData() {
+        
+        app.launch()
+        tapOpenListScreen_WhenTap_NavigationToListScreen(callListText)
+        openListScreen_WhenOpen_CallDataAndShowListOnTable(waitFor: 3)
+    }
+    
+    func testOpenBuyListAndLoadData() {
+        
+        app.launch()
+        tapOpenListScreen_WhenTap_NavigationToListScreen(buyListText)
+        openListScreen_WhenOpen_CallDataAndShowListOnTable(waitFor: 3)
+    }
+    
+    func testOpenSellListAndLoadData() {
+        
+        app.launch()
+        tapOpenListScreen_WhenTap_NavigationToListScreen(sellListText)
+        openListScreen_WhenOpen_CallDataAndShowListOnTable(waitFor: 1)
+    }
+}
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+// MARK: - SUPPORT FUNCTIONS
+extension TodoAppUITests {
+    
+    private func checkIsHomeScreen_WhenOpen_ShowThreeButton() {
+        
+        let callListBtn = app.buttons[callListText]
+        expect(callListBtn.exists).to(beTrue(), description: "Button exist")
+        let buyListBtn = app.buttons[buyListText]
+        expect(buyListBtn.exists).to(beTrue(), description: "Button exist")
+        let sellListBtn = app.buttons[sellListText]
+        expect(sellListBtn.exists).to(beTrue(), description: "Button exist")
+    }
+    
+    private func openListScreen_WhenOpen_CallDataAndShowListOnTable(waitFor: Int) {
+        
+        let tableView = app.tables.element(boundBy: 0)
+        expect(tableView.exists).to(beTrue(), description: "Tableview exist")
+        
+        // swiftlint:disable:next empty_count
+        expect(tableView.cells.count > 0)
+            .toEventually(beTrue(),
+                          timeout: .seconds(waitFor),
+                          description: "tableView have data after fetch list")
+        
+    }
+    
+    private func tapOpenListScreen_WhenTap_NavigationToListScreen(_ titleScreen: String) {
+        
+        checkIsHomeScreen_WhenOpen_ShowThreeButton()
+        
+        let callListBtn = app.buttons[titleScreen]
+        callListBtn.tap()
+        
+        let titleScreen = app.staticTexts[titleScreen]
+        expect(titleScreen.exists).to(beTrue(), description: "Title Screen exist")
+    }
+    
+    private func openCallScreen_WhenOpen_ShowNavAndBackToHome(titleScreen: String) {
+        
+        tapOpenListScreen_WhenTap_NavigationToListScreen(titleScreen)
+        
+        let backBtn = app.buttons["leftButton"]
+        expect(backBtn.exists).to(beTrue(), description: "Button exist")
+        backBtn.tap()
+        
+        checkIsHomeScreen_WhenOpen_ShowThreeButton()
     }
 }

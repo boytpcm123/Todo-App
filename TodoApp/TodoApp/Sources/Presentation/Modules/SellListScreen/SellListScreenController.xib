@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SellListScreenController" customModule="TodoApp" customModuleProvider="target">
+            <connections>
+                <outlet property="customNavigationBar" destination="fHH-ch-wQF" id="dCg-Ij-Dnr"/>
+                <outlet property="sellListTableView" destination="7ad-1P-5Mt" id="z8j-3D-T9S"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PGQ-Ua-dnP">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                    <color key="backgroundColor" name="ThemeColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fHH-ch-wQF" customClass="CustomNavigationBar" customModule="TodoApp" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                    <color key="backgroundColor" name="ThemeColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="UKE-35-Y4h"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7ad-1P-5Mt">
+                    <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                </tableView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="mDK-BS-nVJ"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="mDK-BS-nVJ" firstAttribute="trailing" secondItem="7ad-1P-5Mt" secondAttribute="trailing" id="4Ky-5a-mhg"/>
+                <constraint firstItem="fHH-ch-wQF" firstAttribute="top" secondItem="PGQ-Ua-dnP" secondAttribute="bottom" id="5WH-y9-W0k"/>
+                <constraint firstAttribute="trailing" secondItem="PGQ-Ua-dnP" secondAttribute="trailing" id="CI2-aZ-0hB"/>
+                <constraint firstItem="7ad-1P-5Mt" firstAttribute="leading" secondItem="mDK-BS-nVJ" secondAttribute="leading" id="Dvb-Ad-o5i"/>
+                <constraint firstItem="fHH-ch-wQF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FgR-qW-14K"/>
+                <constraint firstAttribute="trailing" secondItem="fHH-ch-wQF" secondAttribute="trailing" id="Kcg-Qr-o0G"/>
+                <constraint firstItem="mDK-BS-nVJ" firstAttribute="bottom" secondItem="7ad-1P-5Mt" secondAttribute="bottom" id="RX3-Be-W1t"/>
+                <constraint firstItem="7ad-1P-5Mt" firstAttribute="top" secondItem="fHH-ch-wQF" secondAttribute="bottom" id="RkU-HE-wwK"/>
+                <constraint firstItem="PGQ-Ua-dnP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="VNW-0b-8yI"/>
+                <constraint firstItem="fHH-ch-wQF" firstAttribute="top" secondItem="mDK-BS-nVJ" secondAttribute="top" id="cnB-WT-1wL"/>
+                <constraint firstItem="PGQ-Ua-dnP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rzv-qv-JPk"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="105.80357142857143"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="ThemeColor">
+            <color red="0.086000002920627594" green="0.090000003576278687" blue="0.10599999874830246" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -6,31 +6,82 @@
 //
 
 import XCTest
+import Nimble
+import RxSwift
 @testable import TodoApp
 
 class TodoAppTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    var sut: TodoAppTests!
+    private let disposeBag = DisposeBag()
+    
+    override func setUp() {
+        super.setUp()
+        sut = TodoAppTests()
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    override func tearDown() {
+        sut = nil
+        super.tearDown()
     }
+}
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+// MARK: - TEST FUNCTIONS
+extension TodoAppTests {
+    
+    func testGetCallList_CallAPISuccessAndHaveData() {
+        
+        waitUntil(timeout: .seconds(3)) { done in
+            TodoNetworkManager.shared.getCallList()
+                .subscribe(onSuccess: { callList in
+                    expect(callList.isEmpty).to(beFalse(), description: "Fetch call list and have data")
+                    done()
+                }, onFailure: { error in
+                    print(error.localizedDescription)
+                    expect(error)
+                        .to(raiseException(),
+                            description: "Fetch call list fail and call API error, need check again")
+                    done()
+                })
+                .disposed(by: self.disposeBag)
         }
     }
-
+    
+    func testGetBuyList_CallAPISuccessAndHaveData() {
+        
+        waitUntil(timeout: .seconds(3)) { done in
+            TodoNetworkManager.shared.getBuyList()
+                .subscribe(onSuccess: { buyList in
+                    expect(buyList.isEmpty).to(beFalse(), description: "Fetch buy list and have data")
+                    done()
+                }, onFailure: { error in
+                    print(error.localizedDescription)
+                    expect(error)
+                        .to(raiseException(),
+                            description: "Fetch buy list fail and call API error, need check again")
+                    done()
+                })
+                .disposed(by: self.disposeBag)
+        }
+    }
+    
+    func testGetSellList_CallAPISuccessAndHaveData() {
+        
+        testGetBuyList_CallAPISuccessAndHaveData()
+        
+        waitUntil { done in
+            TodoRepository.shared.getSellList()
+                .subscribe(onSuccess: { sellList in
+                    expect(sellList.isEmpty).to(beFalse(), description: "Fetch buy list and have data")
+                    done()
+                }, onFailure: { error in
+                    print(error.localizedDescription)
+                    expect(error)
+                        .to(raiseException(),
+                            description: "Fetch sell list fail from Core data, need check again")
+                    done()
+                })
+                .disposed(by: self.disposeBag)
+        }
+    }
 }
