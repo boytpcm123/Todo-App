@@ -38,7 +38,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 // MARK: - SUPPORT FUCTIONS
 extension AppDelegate {
     
-    fileprivate func setRootViewController(_ viewController: UIViewController) {
+    private func setRootViewController(_ viewController: UIViewController) {
         window = UIWindow(frame: UIScreen.main.bounds)
         let navVC: UINavigationController = UINavigationController(rootViewController: viewController)
         navVC.navigationBar.isHidden = true
