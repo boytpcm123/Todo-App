@@ -1037,7 +1037,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D076A3D05551E73BE73AB26E /* Pods-TodoAppTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1058,7 +1057,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7F5A3F85575148D86D0BA23D /* Pods-TodoAppTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1079,7 +1077,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 53D8C4E405AB9F86B992F389 /* Pods-TodoApp-TodoAppUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N4Q7U8RR8X;
@@ -1098,7 +1095,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D5E6E0448DC4B6101B27D382 /* Pods-TodoApp-TodoAppUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N4Q7U8RR8X;
