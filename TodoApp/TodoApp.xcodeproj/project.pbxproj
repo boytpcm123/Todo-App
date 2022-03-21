@@ -49,6 +49,7 @@
 		59B5C71F27E70D19001A88D9 /* TodoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B5C71E27E70D19001A88D9 /* TodoRepository.swift */; };
 		59CE973A27E833C800090B0A /* ItemSell+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CE973827E833C800090B0A /* ItemSell+CoreDataClass.swift */; };
 		59CE973B27E833C800090B0A /* ItemSell+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CE973927E833C800090B0A /* ItemSell+CoreDataProperties.swift */; };
+		59CE973F27E83DD000090B0A /* Fastfile in Resources */ = {isa = PBXBuildFile; fileRef = 59CE973E27E83DD000090B0A /* Fastfile */; };
 		AE3E018D7C276CA1B743E907 /* Pods_TodoAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CD4E5044158F165569506A /* Pods_TodoAppTests.framework */; };
 		B3E75976EC4305EF4940C7C8 /* Pods_TodoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B0A86789D71DFD048DA278 /* Pods_TodoApp.framework */; };
 /* End PBXBuildFile section */
@@ -119,6 +120,7 @@
 		59B5C71E27E70D19001A88D9 /* TodoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRepository.swift; sourceTree = "<group>"; };
 		59CE973827E833C800090B0A /* ItemSell+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemSell+CoreDataClass.swift"; sourceTree = "<group>"; };
 		59CE973927E833C800090B0A /* ItemSell+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemSell+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		59CE973E27E83DD000090B0A /* Fastfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = SOURCE_ROOT; };
 		648F5A4592F94BDD09AF8F2D /* Pods_TodoApp_TodoAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoApp_TodoAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71CD4E5044158F165569506A /* Pods_TodoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F5A3F85575148D86D0BA23D /* Pods-TodoAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoAppTests.release.xcconfig"; path = "Target Support Files/Pods-TodoAppTests/Pods-TodoAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		59A729B827E5CBFD002CFE8B /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
+				59CE973D27E83DAE00090B0A /* Fastlane */,
 				59A729B927E5CBFD002CFE8B /* Plists */,
 			);
 			path = Configurations;
@@ -488,6 +491,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		59CE973D27E83DAE00090B0A /* Fastlane */ = {
+			isa = PBXGroup;
+			children = (
+				59CE973E27E83DD000090B0A /* Fastfile */,
+			);
+			path = Fastlane;
+			sourceTree = "<group>";
+		};
 		AA6F564D6C220CDEF375DF77 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -623,6 +634,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59A729FA27E5EDA5002CFE8B /* CustomNavigationBar.xib in Resources */,
+				59CE973F27E83DD000090B0A /* Fastfile in Resources */,
 				59A7298D27E5BA9E002CFE8B /* LaunchScreen.storyboard in Resources */,
 				59A729EC27E5E40B002CFE8B /* CallListScreenController.xib in Resources */,
 				5956655E27E65B9900129AD9 /* NoteListCell.xib in Resources */,
@@ -991,9 +1003,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N4Q7U8RR8X;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodoApp/Configurations/Plists/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Todo App";
@@ -1011,6 +1024,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sonans.TodoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1023,9 +1037,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N4Q7U8RR8X;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodoApp/Configurations/Plists/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Todo App";
@@ -1043,6 +1058,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sonans.TodoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1054,14 +1070,18 @@
 			baseConfigurationReference = D076A3D05551E73BE73AB26E /* Pods-TodoAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N4Q7U8RR8X;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sonans.TodoAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1074,14 +1094,18 @@
 			baseConfigurationReference = 7F5A3F85575148D86D0BA23D /* Pods-TodoAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N4Q7U8RR8X;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sonans.TodoAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1093,13 +1117,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 53D8C4E405AB9F86B992F389 /* Pods-TodoApp-TodoAppUITests.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N4Q7U8RR8X;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sonans.TodoAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1111,13 +1139,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D5E6E0448DC4B6101B27D382 /* Pods-TodoApp-TodoAppUITests.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N4Q7U8RR8X;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sonans.TodoAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

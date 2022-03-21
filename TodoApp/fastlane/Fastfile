@@ -1,0 +1,21 @@
+MY_APP_ID = "com.sonans.TodoApp"
+SCHEME_APP = "TodoApp"
+SCHEME_APP_TEST = "TodoAppTests"
+SCHEME_APP_UI_TEST = "TodoAppUITests"
+
+update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Before All"
+  before_all do
+
+  end
+
+  desc "Test App"
+  lane :tests do
+    run_tests(scheme: SCHEME_APP_TEST)
+    run_tests(scheme: SCHEME_APP_UI_TEST)
+  end
+end
