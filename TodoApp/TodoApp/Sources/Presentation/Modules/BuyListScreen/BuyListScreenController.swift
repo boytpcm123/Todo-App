@@ -81,8 +81,8 @@ extension BuyListScreenController {
         
         Observable.zip(buyListTableView.rx.modelSelected(ItemNoted.self),
                        buyListTableView.rx.itemSelected)
-            .bind { [weak self] itemNoted, indexPath in
-                self?.buyListTableView.deselectRow(at: indexPath, animated: true)
+            .bind { itemNoted, indexPath in
+                self.buyListTableView.deselectRow(at: indexPath, animated: true)
                 print(itemNoted.name.string)
             }
             .disposed(by: disposeBag)

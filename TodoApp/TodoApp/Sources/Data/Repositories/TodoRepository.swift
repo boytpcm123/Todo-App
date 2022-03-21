@@ -46,6 +46,18 @@ extension TodoRepository {
             return Disposables.create()
         }
     }
+    
+    func deleteItem(_ itemNoted: ItemNoted) -> Single<[ItemNoted]> {
+        
+        let itemId = itemNoted.id
+        
+        MagicalRecord.save(blockAndWait: { context in
+            let predicate = NSPredicate(format: "id = '\(itemId)'")
+            ItemSell.mr_deleteAll(matching: predicate, in: context)
+        })
+        
+        return getSellList()
+    }
 }
 
 // MARK: - SUPPORT FUNCTIONS
@@ -79,14 +91,6 @@ extension TodoRepository {
             entity.price = Int32(item.price ?? 0)
             entity.quantity = Int32(item.quantity ?? 0)
             entity.type = Int32(item.type ?? 0)
-        })
-    }
-    
-    private func deleteItem(_ itemId: String) {
-        
-        MagicalRecord.save(blockAndWait: { context in
-            let predicate = NSPredicate(format: "id = '\(itemId)'")
-            ItemSell.mr_deleteAll(matching: predicate, in: context)
         })
     }
     
