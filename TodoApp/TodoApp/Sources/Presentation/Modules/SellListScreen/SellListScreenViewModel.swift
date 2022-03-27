@@ -13,12 +13,17 @@ struct SellListScreenViewModel {
     
     // MARK: - PROPERTIES
     private let disposeBag = DisposeBag()
+    private let todoRepository: TodoRepositoryProtocol
     let showLoading = BehaviorSubject<Bool>(value: true)
-    let publishSellList = PublishSubject<[ItemNoted]>()
+    let publishSellList = PublishSubject<[ItemNotedViewModel]>()
+    
+    init(todoRepository: TodoRepositoryProtocol = TodoRepository()) {
+        self.todoRepository = todoRepository
+    }
     
     func fetchSellList() {
         
-        TodoRepository.shared.getSellList()
+        todoRepository.getSellList()
             .subscribe(onSuccess: { itemNoteds in
                 publishSellList.onNext(itemNoteds)
                 showLoading.onNext(false)
@@ -29,9 +34,9 @@ struct SellListScreenViewModel {
             .disposed(by: disposeBag)
     }
     
-    func deleteSellItem(_ itemNoted: ItemNoted) {
+    func deleteSellItem(_ itemNoted: ItemNotedViewModel) {
         
-        TodoRepository.shared.deleteItem(itemNoted)
+        todoRepository.deleteItem(itemNoted)
             .subscribe(onSuccess: { itemNoteds in
                 publishSellList.onNext(itemNoteds)
             }, onFailure: { error in

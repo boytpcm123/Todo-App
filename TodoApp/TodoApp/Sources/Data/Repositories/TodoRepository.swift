@@ -9,17 +9,21 @@ import Foundation
 import MagicalRecord
 import RxSwift
 
-struct TodoRepository {
+protocol TodoRepositoryProtocol {
     
-    static let shared = TodoRepository()
+    func addListItem(items: [ItemNotedViewModel])
+    func getSellList() -> Single<[ItemNotedViewModel]>
+    func deleteItem(_ itemNoted: ItemNotedViewModel) -> Single<[ItemNotedViewModel]>
+}
+
+struct TodoRepository: TodoRepositoryProtocol {
     
-    private init() {}
 }
 
 // MARK: - PUBLIC FUNCTIONS
 extension TodoRepository {
     
-    func addListItem(items: [ItemNoted]) {
+    func addListItem(items: [ItemNotedViewModel]) {
         
         for item in items {
             if checkExistItem(item) {
@@ -30,26 +34,27 @@ extension TodoRepository {
         }
     }
     
-    func getSellList() -> Single<[ItemNoted]> {
+    func getSellList() -> Single<[ItemNotedViewModel]> {
         let itemSells = getItemSells()
-        var sellList: [ItemNoted] = []
+        var sellList: [ItemNotedViewModel] = []
         for itemSell in itemSells {
             let itemNoted: ItemNoted = ItemNoted(id: Int(itemSell.id),
                                                  name: itemSell.nameItem,
                                                  price: Int(itemSell.price),
                                                  quantity: Int(itemSell.quantity),
                                                  type: Int(itemSell.type))
-            sellList.append(itemNoted)
+            let itemNotedViewModel = ItemNotedViewModel(itemNoted: itemNoted)
+            sellList.append(itemNotedViewModel)
         }
-        return Single<[ItemNoted]>.create { single in
+        return Single<[ItemNotedViewModel]>.create { single in
             single(.success(sellList))
             return Disposables.create()
         }
     }
     
-    func deleteItem(_ itemNoted: ItemNoted) -> Single<[ItemNoted]> {
+    func deleteItem(_ itemNoted: ItemNotedViewModel) -> Single<[ItemNotedViewModel]> {
         
-        let itemId = itemNoted.id
+        let itemId = itemNoted.getId()
         
         MagicalRecord.save(blockAndWait: { context in
             let predicate = NSPredicate(format: "id = '\(itemId)'")
@@ -63,34 +68,34 @@ extension TodoRepository {
 // MARK: - SUPPORT FUNCTIONS
 extension TodoRepository {
     
-    private func addItem(_ item: ItemNoted) {
+    private func addItem(_ item: ItemNotedViewModel) {
         
         MagicalRecord.save({ context in
             let entity = ItemSell.mr_createEntity(in: context)
-            entity?.id = Int32(item.id)
-            entity?.nameItem = item.name
-            entity?.price = Int32(item.price ?? 0)
-            entity?.quantity = Int32(item.quantity ?? 0)
-            entity?.type = Int32(item.type ?? 0)
+            entity?.id = item.getId()
+            entity?.nameItem = item.getName()
+            entity?.price = item.getPrice()
+            entity?.quantity = item.getQuantity()
+            entity?.type = item.getType()
         })
     }
     
-    private func checkExistItem(_ item: ItemNoted) -> Bool {
+    private func checkExistItem(_ item: ItemNotedViewModel) -> Bool {
         
         let context = NSManagedObjectContext.mr_contextForCurrentThread()
-        let predicate = NSPredicate(format: "id = '\(item.id)'")
+        let predicate = NSPredicate(format: "id = '\(item.getId())'")
         return ItemSell.mr_findFirst(with: predicate, in: context) != nil
     }
     
-    private func updateItem(_ item: ItemNoted) {
+    private func updateItem(_ item: ItemNotedViewModel) {
         
         MagicalRecord.save({ context in
-            let predicate = NSPredicate(format: "id = '\(item.id)'")
+            let predicate = NSPredicate(format: "id = '\(item.getId())'")
             guard let entity = ItemSell.mr_findFirst(with: predicate, in: context) else { return }
-            entity.nameItem = item.name
-            entity.price = Int32(item.price ?? 0)
-            entity.quantity = Int32(item.quantity ?? 0)
-            entity.type = Int32(item.type ?? 0)
+            entity.nameItem = item.getName()
+            entity.price = item.getPrice()
+            entity.quantity = item.getQuantity()
+            entity.type = item.getType()
         })
     }
     
