@@ -78,15 +78,15 @@ extension SellListScreenController {
                         }
                         .disposed(by: disposeBag)
         
-        Observable.zip(sellListTableView.rx.modelSelected(ItemNoted.self),
+        Observable.zip(sellListTableView.rx.modelSelected(ItemNotedViewModel.self),
                        sellListTableView.rx.itemSelected)
             .bind { itemNoted, indexPath in
                 self.sellListTableView.deselectRow(at: indexPath, animated: true)
-                print(itemNoted.name.string)
+                print(itemNoted.getName())
             }
             .disposed(by: disposeBag)
         
-        sellListTableView.rx.modelDeleted(ItemNoted.self)
+        sellListTableView.rx.modelDeleted(ItemNotedViewModel.self)
             .bind { itemNoted in
                 self.viewModel.deleteSellItem(itemNoted)
             }

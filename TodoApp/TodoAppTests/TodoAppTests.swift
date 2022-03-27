@@ -14,10 +14,14 @@ class TodoAppTests: XCTestCase {
     
     var sut: TodoAppTests!
     private let disposeBag = DisposeBag()
+    private var todoNetworkManager: TodoNetworkManagerProtocol!
+    private var todoRepository: TodoRepositoryProtocol!
     
     override func setUp() {
         super.setUp()
         sut = TodoAppTests()
+        todoNetworkManager = TodoNetworkManager()
+        todoRepository = TodoRepository()
     }
     
     override func tearDown() {
@@ -32,7 +36,7 @@ extension TodoAppTests {
     func testGetCallList_CallAPISuccessAndHaveData() {
         
         waitUntil(timeout: .seconds(3)) { done in
-            TodoNetworkManager.shared.getCallList()
+            self.todoNetworkManager.getCallList()
                 .subscribe(onSuccess: { callList in
                     expect(callList.isEmpty).to(beFalse(), description: "Fetch call list and have data")
                     done()
@@ -50,7 +54,7 @@ extension TodoAppTests {
     func testGetBuyList_CallAPISuccessAndHaveData() {
         
         waitUntil(timeout: .seconds(3)) { done in
-            TodoNetworkManager.shared.getBuyList()
+            self.todoNetworkManager.getBuyList()
                 .subscribe(onSuccess: { buyList in
                     expect(buyList.isEmpty).to(beFalse(), description: "Fetch buy list and have data")
                     done()
@@ -70,7 +74,7 @@ extension TodoAppTests {
         testGetBuyList_CallAPISuccessAndHaveData()
         
         waitUntil { done in
-            TodoRepository.shared.getSellList()
+            self.todoRepository.getSellList()
                 .subscribe(onSuccess: { sellList in
                     expect(sellList.isEmpty).to(beFalse(), description: "Fetch buy list and have data")
                     done()

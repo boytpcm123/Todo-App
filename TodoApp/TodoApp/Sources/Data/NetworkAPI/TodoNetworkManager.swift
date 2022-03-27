@@ -8,13 +8,17 @@
 import RxSwift
 import Moya
 
-struct TodoNetworkManager {
+protocol TodoNetworkManagerProtocol {
     
-    static let shared = TodoNetworkManager()
+    func getCallList() -> Single<[UserCall]>
+    func getBuyList() -> Single<[ItemNoted]>
+}
+
+struct TodoNetworkManager: TodoNetworkManagerProtocol {
     
     private var provider: MoyaProvider<TodoService>!
     
-    private init() {
+    init() {
         let plugin: PluginType = NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))
         provider = MoyaProvider<TodoService>(plugins: [plugin])
     }
