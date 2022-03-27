@@ -32,10 +32,10 @@ class NoteListCell: UITableViewCell {
         quantityLabel.text = ""
     }
     
-    func bindData(_ itemNoted: ItemNoted) {
-        nameLabel.text = itemNoted.name
-        priceLabel.text = "\(itemNoted.price ?? 0)"
-        quantityLabel.text = "\(itemNoted.quantity ?? 0)"
+    func bindData(_ itemNoted: ItemNotedViewModel) {
+        nameLabel.text = itemNoted.getName()
+        priceLabel.text = "\(itemNoted.getPrice())"
+        quantityLabel.text = "\(itemNoted.getQuantity())"
     }
     
 }

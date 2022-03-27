@@ -13,14 +13,27 @@ struct BuyListScreenViewModel {
     
     // MARK: - PROPERTIES
     private let disposeBag = DisposeBag()
+    private let todoNetworkManager: TodoNetworkManagerProtocol
+    private let todoRepository: TodoRepositoryProtocol
     let showLoading = BehaviorSubject<Bool>(value: true)
-    let publishBuyList = PublishSubject<[ItemNoted]>()
+    let publishBuyList = PublishSubject<[ItemNotedViewModel]>()
+    
+    init(todoNetworkManager: TodoNetworkManagerProtocol = TodoNetworkManager(),
+         todoRepository: TodoRepositoryProtocol = TodoRepository()) {
+        self.todoNetworkManager = todoNetworkManager
+        self.todoRepository = todoRepository
+    }
     
     func fetchBuyList() {
         
-        TodoNetworkManager.shared.getBuyList()
+        todoNetworkManager.getBuyList()
+            .map {
+                $0.map {
+                    ItemNotedViewModel(itemNoted: $0)
+                }
+            }
             .subscribe(onSuccess: { buyList in
-                TodoRepository.shared.addListItem(items: buyList)
+                todoRepository.addListItem(items: buyList)
                 publishBuyList.onNext(buyList)
                 showLoading.onNext(false)
             }, onFailure: { error in

@@ -79,11 +79,11 @@ extension CallListScreenController {
                         }
                         .disposed(by: disposeBag)
         
-        Observable.zip(callListTableView.rx.modelSelected(UserCall.self),
+        Observable.zip(callListTableView.rx.modelSelected(UserCallViewModel.self),
                        callListTableView.rx.itemSelected)
             .bind { userCall, indexPath in
                 self.callListTableView.deselectRow(at: indexPath, animated: true)
-                print(userCall.name.string)
+                print(userCall.getName())
             }
             .disposed(by: disposeBag)
         

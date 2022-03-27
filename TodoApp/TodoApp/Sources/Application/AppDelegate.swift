@@ -13,6 +13,7 @@ import MagicalRecord
 final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    private var appCoordinator: AppCoordinator?
     
     func application(
         _ application: UIApplication,
@@ -23,7 +24,9 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         MagicalRecord.setupAutoMigratingCoreDataStack()
         
         // Set root
-        setRootViewController(HomeScreenController())
+        window = UIWindow(frame: UIScreen.main.bounds)
+        appCoordinator = AppCoordinator(window: window!)
+        appCoordinator?.start()
         
         return true
     }
@@ -38,11 +41,4 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 // MARK: - SUPPORT FUCTIONS
 extension AppDelegate {
     
-    private func setRootViewController(_ viewController: UIViewController) {
-        window = UIWindow(frame: UIScreen.main.bounds)
-        let navVC: UINavigationController = UINavigationController(rootViewController: viewController)
-        navVC.navigationBar.isHidden = true
-        window?.rootViewController = navVC
-        window?.makeKeyAndVisible()
-    }
 }

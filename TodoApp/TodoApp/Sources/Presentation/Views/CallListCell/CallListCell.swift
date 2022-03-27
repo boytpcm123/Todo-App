@@ -30,9 +30,9 @@ class CallListCell: UITableViewCell {
         phoneLabel.text = ""
     }
     
-    func bindData(_ userCall: UserCall) {
-        nameLabel.text = userCall.name
-        phoneLabel.text = userCall.number
+    func bindData(_ userCall: UserCallViewModel) {
+        nameLabel.text = userCall.getName()
+        phoneLabel.text = userCall.getPhoneNumber()
     }
     
 }
