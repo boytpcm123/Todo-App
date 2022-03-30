@@ -11,7 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomNavigationBar" customModule="TodoApp" customModuleProvider="target">
             <connections>
-                <outlet property="contentView" destination="iN0-l3-epB" id="Mxy-7A-0Gk"/>
                 <outlet property="leftButton" destination="3DX-EO-QJk" id="66y-ox-H77"/>
                 <outlet property="rightButton" destination="nc7-ea-uVj" id="CdF-o3-DRL"/>
                 <outlet property="titleLabel" destination="MHo-LV-RPq" id="sN2-JC-CCl"/>
