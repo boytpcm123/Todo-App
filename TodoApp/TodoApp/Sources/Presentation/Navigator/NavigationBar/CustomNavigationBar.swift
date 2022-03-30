@@ -12,7 +12,6 @@ import RxCocoa
 class CustomNavigationBar: UIView {
     
     // MARK: - OUTLET
-    @IBOutlet private var contentView: UIView!
     @IBOutlet private weak var leftButton: UIButton!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var rightButton: UIButton!
@@ -46,11 +45,15 @@ extension CustomNavigationBar {
     }
     
     private func setupUI() {
-        Bundle.main.loadNibNamed("CustomNavigationBar", owner: self, options: nil)
-        guard let content = contentView else { return }
-        content.frame = self.bounds
-        content.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        self.addSubview(content)
+        
+        let nib = UINib(nibName: "CustomNavigationBar", bundle: nil)
+        guard let view = nib.instantiate(withOwner: self, options: nil).first as? UIView else {
+            fatalError("Unable to convert nib")
+        }
+        view.frame = self.bounds
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        addSubview(view)
     }
     
     private func bindLeftButton() {

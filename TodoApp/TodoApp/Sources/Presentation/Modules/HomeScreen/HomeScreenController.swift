@@ -40,9 +40,9 @@ extension HomeScreenController {
     private func bindCallListButton() {
         callListBtn.rx.tap
             .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
-            .subscribe(onNext: { _ in
+            .subscribe(onNext: { [weak self] _ in
                 let controller = CallListScreenController()
-                self.navigationController?.pushViewController(controller, animated: true)
+                self?.navigationController?.pushViewController(controller, animated: true)
             })
             .disposed(by: disposeBag)
     }
@@ -50,9 +50,9 @@ extension HomeScreenController {
     private func bindBuyListButton() {
         buyListBtn.rx.tap
             .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
-            .subscribe(onNext: { _ in
+            .subscribe(onNext: { [weak self] _ in
                 let controller = BuyListScreenController()
-                self.navigationController?.pushViewController(controller, animated: true)
+                self?.navigationController?.pushViewController(controller, animated: true)
             })
             .disposed(by: disposeBag)
     }
@@ -60,9 +60,9 @@ extension HomeScreenController {
     private func bindSellListButton() {
         sellListBtn.rx.tap
             .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
-            .subscribe(onNext: { _ in
+            .subscribe(onNext: { [weak self] _ in
                 let controller = SellListScreenController()
-                self.navigationController?.pushViewController(controller, animated: true)
+                self?.navigationController?.pushViewController(controller, animated: true)
             })
             .disposed(by: disposeBag)
     }
